@@ -852,45 +852,71 @@ summary {
 }
 
 .multi-sections-blocks-inner-item-sponsor-logos {
-  padding: 94px 0 160px;
-  background: transparent;
+  padding: clamp(96px, 8vw, 136px) 0 clamp(120px, 12vw, 210px);
+  min-height: clamp(620px, 43vw, 760px);
+  background:
+    url('https://www.blueoxmusicfestival.com/wp-content/themes/blueox/assets/images/backgrounds/Desktop_Footer_GradientBlend-shorter.webp');
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.multi-sections-blocks-inner-item-sponsor-logos::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgb(9 28 54 / 62%) 0%, rgb(8 24 39 / 42%) 48%, rgb(4 14 24 / 80%) 100%);
+  pointer-events: none;
 }
 
 .multi-sections-blocks-inner-item-sponsor-logos .head h2 {
   text-align: center;
   color: var(--accent);
-  font-size: clamp(1.6rem, 2.8vw, 2rem);
+  font-size: clamp(2rem, 3vw, 3rem);
   letter-spacing: -1px;
-  margin-bottom: 18px;
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 1;
 }
 
 .multi-sections-blocks-inner-item-sponsor-logos-list {
   position: relative;
+  z-index: 1;
+  max-width: 1800px;
+  margin: 0 auto;
 }
 
 .our_sponsors_slider {
-  max-width: 1440px;
+  max-width: 1760px;
   margin: 0 auto;
-  padding: 0 70px;
+  padding: 0 88px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 14px;
 }
 
 .our_sponsors_track {
   flex: 1;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 4px;
+  grid-template-rows: repeat(2, minmax(120px, auto));
+  gap: 8px 16px;
+  align-items: center;
 }
 
 .multi-sections-blocks-inner-item-sponsor-logos-list-item {
-  padding: 9px 18px;
+  padding: 10px 14px;
   position: relative;
+  min-height: 110px;
+  display: grid;
+  place-items: center;
 }
 
 .multi-sections-blocks-inner-item-sponsor-logos-list-item img {
-  width: 140px;
+  width: 168px;
+  max-width: 100%;
   margin: 0 auto;
   transition: 0.4s ease-in-out;
   display: block;
@@ -913,23 +939,25 @@ summary {
 }
 
 .sponsor-arrow {
-  background: rgb(22 72 89 / 85%);
+  background: rgb(22 72 89 / 78%);
   border: none;
-  width: 44px;
-  height: 50px;
-  border-radius: 8px;
+  width: 64px;
+  height: 74px;
+  border-radius: 14px;
   cursor: pointer;
+  flex: 0 0 auto;
+  box-shadow: 0 10px 25px rgb(0 0 0 / 18%);
 }
 
 .sponsor-arrow::before {
   content: '';
   display: block;
-  width: 9px;
-  height: 9px;
-  border-top: 2px solid var(--bg);
-  border-right: 2px solid var(--bg);
+  width: 12px;
+  height: 12px;
+  border-top: 3px solid var(--bg);
+  border-right: 3px solid var(--bg);
   transform: rotate(225deg);
-  margin-left: 16px;
+  margin-left: 25px;
 }
 
 .sponsor-arrow.slick-next {
@@ -1037,15 +1065,39 @@ summary {
   }
 
   .multi-sections-blocks-inner-item-sponsor-logos {
-    padding: 54px 0 77px;
+    min-height: 0;
+    padding: 72px 0 94px;
+    background-image:
+      url('https://www.blueoxmusicfestival.com/wp-content/themes/blueox/assets/images/backgrounds/Home_Footer_Mobile2_shorter.webp');
+    background-position: center bottom;
+    background-size: 100% auto;
   }
 
   .our_sponsors_slider {
-    padding: 0 30px;
+    padding: 0 48px;
   }
 
   .multi-sections-blocks-inner-item-sponsor-logos-list-item img {
-    width: 110px;
+    width: 122px;
+  }
+
+  .our_sponsors_track {
+    gap: 10px 12px;
+    grid-template-rows: repeat(2, minmax(92px, auto));
+  }
+
+  .sponsor-arrow {
+    width: 48px;
+    height: 56px;
+    border-radius: 10px;
+  }
+
+  .sponsor-arrow::before {
+    width: 9px;
+    height: 9px;
+    border-top-width: 2px;
+    border-right-width: 2px;
+    margin-left: 19px;
   }
 }
 

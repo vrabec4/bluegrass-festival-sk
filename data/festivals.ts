@@ -90,6 +90,14 @@ export const festivalEditions: FestivalEdition[] = [
           'https://www.blueoxmusicfestival.com/wp-content/uploads/2025/07/2023-Sponsorship-Logos-FieldsNotes.png',
       },
       {
+        name: 'McKinley Money',
+        url: 'https://mckinleymoney.com/',
+        creamLogoUrl:
+          'https://www.blueoxmusicfestival.com/wp-content/uploads/2025/11/2026-Sponsorship-Logos-McKinnley-CREAM-1.png',
+        goldLogoUrl:
+          'https://www.blueoxmusicfestival.com/wp-content/uploads/2025/11/2026-Sponsorship-Logos-McKinnley-GOLD-2.png',
+      },
+      {
         name: 'Climbing Kites',
         url: 'https://climbingkites.com/',
         creamLogoUrl:
@@ -106,6 +114,14 @@ export const festivalEditions: FestivalEdition[] = [
           'https://www.blueoxmusicfestival.com/wp-content/uploads/2025/07/2023-Sponsorship-Logos-Web-NicoletBank.png',
       },
       {
+        name: 'Oskar Blues',
+        url: 'https://oskarblues.com/',
+        creamLogoUrl:
+          'https://www.blueoxmusicfestival.com/wp-content/uploads/2025/07/2024-Sponsorship-Logos-Web-OscarBlues.webp',
+        goldLogoUrl:
+          'https://www.blueoxmusicfestival.com/wp-content/uploads/2025/07/2024-Sponsorship-Logos-Web-OscarBlues.png',
+      },
+      {
         name: 'Lee Beverage of Wisconsin',
         url: 'https://www.leebeverage.com/',
         creamLogoUrl:
@@ -120,6 +136,38 @@ export const festivalEditions: FestivalEdition[] = [
           'https://www.blueoxmusicfestival.com/wp-content/uploads/2026/02/2026-Sponsorship-Logos-Web-BauerBuilt-Cream.png',
         goldLogoUrl:
           'https://www.blueoxmusicfestival.com/wp-content/uploads/2026/02/2026-Sponsorship-Logos-Web-BauerBuilt-Gold.png',
+      },
+      {
+        name: 'Menomonie Market',
+        url: 'https://mmfc.coop/',
+        creamLogoUrl:
+          'https://www.blueoxmusicfestival.com/wp-content/uploads/2025/07/2025-Sponsorship-Logos-Web-MenomonieMarket.webp',
+        goldLogoUrl:
+          'https://www.blueoxmusicfestival.com/wp-content/uploads/2025/07/2025-Sponsorship-Logos-Web-MenomonieMarket.png',
+      },
+      {
+        name: 'Radio Milwaukee',
+        url: 'https://radiomilwaukee.org/',
+        creamLogoUrl:
+          'https://www.blueoxmusicfestival.com/wp-content/uploads/2026/02/2026-Sponsorship-Logos-Web-RadioMKE_Cream.png',
+        goldLogoUrl:
+          'https://www.blueoxmusicfestival.com/wp-content/uploads/2026/02/2026-Sponsorship-Logos-Web-RadioMKE_Gold.png',
+      },
+      {
+        name: 'WMSE',
+        url: 'https://wmse.org/',
+        creamLogoUrl:
+          'https://www.blueoxmusicfestival.com/wp-content/uploads/2026/02/2026-Sponsorship-Logos-Web-WMSE-CREAM.png',
+        goldLogoUrl:
+          'https://www.blueoxmusicfestival.com/wp-content/uploads/2026/02/2026-Sponsorship-Logos-Web-WMSE-GOLD.png',
+      },
+      {
+        name: 'Springhill Suites',
+        url: 'https://www.marriott.com/en-us/hotels/eaush-springhill-suites-eau-claire/overview/',
+        creamLogoUrl:
+          'https://www.blueoxmusicfestival.com/wp-content/uploads/2025/07/2025-Sponsorship-Logos-Web-Springhill.webp',
+        goldLogoUrl:
+          'https://www.blueoxmusicfestival.com/wp-content/uploads/2025/07/2025-Sponsorship-Logos-Web-Springhill.png',
       },
       {
         name: 'The Current',
