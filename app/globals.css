@@ -24,12 +24,25 @@ body {
 body {
   font-family: 'Avenir Next', 'Trebuchet MS', 'Space Grotesk', sans-serif;
   color: var(--text);
-  background: linear-gradient(180deg, var(--brand) 1%, var(--bg) 26%);
+  background: #07111b;
   line-height: 1.6;
 }
 
 body.menu-open {
   overflow: hidden;
+}
+
+.body-bg {
+  background:
+    linear-gradient(180deg, #0a2731 2%, rgb(10 39 49 / 0)),
+    url('https://www.blueoxmusicfestival.com/wp-content/themes/blueox/assets/images/backgrounds/Desktop_Footer_GradientBlend-shorter.webp');
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+}
+
+#page {
+  background: linear-gradient(180deg, #0a2731 15.75%, rgb(10 39 49 / 0) 30.45%);
 }
 
 a {
@@ -971,6 +984,15 @@ summary {
 }
 
 @media (max-width: 900px) {
+  .body-bg {
+    background:
+      linear-gradient(180deg, #0a2731 40.34%, rgb(10 39 49 / 0)),
+      url('https://www.blueoxmusicfestival.com/wp-content/themes/blueox/assets/images/backgrounds/Home_Footer_Mobile2_shorter.webp');
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+  }
+
   .banner-slider {
     min-height: 520px;
   }
