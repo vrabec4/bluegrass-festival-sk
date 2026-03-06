@@ -1,19 +1,19 @@
-# Technológie
+# Technologie
 
 ## Frontend
-- HTML5: semantická štruktúra one-page webu.
-- CSS3: custom properties, responsive layout, moderný vizuálny štýl.
-- Vanilla JavaScript: odpočet a drobná interaktivita.
+- Next.js (App Router): framework pre viacrocny obsah festivalu.
+- TypeScript: typova bezpecnost pri data modeloch a komponentoch.
+- React: komponentovy UI pristup.
 
-## Tooling
-- Node.js 22: runtime pre build/lint/test skripty.
-- npm: správca skriptov a závislostí.
+## Obsahovy model
+- `data/festivals.ts`: centralny zdroj pre jednotlive rocniky (lineup, program, FAQ, metadata).
+- `app/[year]/page.tsx`: routa pre rocniky.
+- `app/archiv/page.tsx`: archiv rocnikov.
 
 ## CI/CD
-- GitHub Actions `ci.yml`: lint + test + build na `push` a `pull_request`.
-- GitHub Actions `pages.yml`: automatický deploy na GitHub Pages z vetvy `main`.
+- GitHub Actions `ci.yml`: `npm ci`, `npm run lint`, `npm test`, `npm run build`.
+- GitHub Actions `pages.yml`: build a deploy statickeho exportu z `out/` na GitHub Pages.
 
-## Budúce rozšírenia (voliteľné)
-- TypeScript + Vite (ak bude rásť JS logika).
-- Playwright vizuálne testy pre kritické viewports.
-- CMS integrácia (napr. Sanity/Contentful) pri častých zmenách programu.
+## Nasadenie
+- Staticky export (`output: export`) vhodny pre GitHub Pages.
+- Automaticke nastavenie `basePath` a `assetPrefix` pocas build-u v GitHub Actions.

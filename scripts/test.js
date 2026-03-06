@@ -1,27 +1,25 @@
 #!/usr/bin/env node
 const fs = require('node:fs');
 
-function fail(message) {
-  console.error(`Test failed: ${message}`);
-  process.exit(1);
+function read(path) {
+  return fs.readFileSync(path, 'utf8');
 }
 
-const html = fs.readFileSync('index.html', 'utf8');
-
-const requiredTexts = [
-  'Vstupné dobrovoľné',
-  'Mapa parkovania áut',
-  'Malá mapa k Bufetu na dobrom mieste',
-  'Kapela #2',
-  'Kapela #3',
-  'Kapela #4',
-  'Kapela #5',
-];
-
-for (const text of requiredTexts) {
-  if (!html.includes(text)) {
-    fail(`Chýba povinný text: ${text}`);
+function assertContains(content, expected, file) {
+  if (!content.includes(expected)) {
+    console.error(`Test failed: ${file} missing text -> ${expected}`);
+    process.exit(1);
   }
 }
+
+const page = read('components/festival-page.tsx');
+const data = read('data/festivals.ts');
+
+assertContains(page, 'Mapa parkovania aut', 'components/festival-page.tsx');
+assertContains(page, 'Mala mapa k Bufetu na dobrom mieste', 'components/festival-page.tsx');
+assertContains(data, 'Bluegrass na dobrom mieste', 'data/festivals.ts');
+assertContains(data, 'Grass Device', 'data/festivals.ts');
+assertContains(data, '5.9.2026', 'data/festivals.ts');
+assertContains(data, 'Vstupne dobrovolne', 'data/festivals.ts');
 
 console.log('Test OK');

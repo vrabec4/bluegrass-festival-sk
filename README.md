@@ -1,33 +1,41 @@
-# Bluegrass Festival SK (placeholder project)
+# Bluegrass na dobrom mieste (Next.js + TypeScript)
 
-Jednoduchý one-page web pre bluegrass festival na Slovensku.
+Web pre kazdorocny bluegrass festival na Slovensku.
 
-Aktuálne potvrdené údaje:
-- Dátum: **5.9.2026**
+Aktualne potvrdene udaje:
+- Nazov: **Bluegrass na dobrom mieste**
+- Datum: **5.9.2026**
 - Miesto: **Bufet na dobrom mieste**
-- Vstupné: **dobrovoľné**
-- Potvrdená kapela: **Grass Device**
+- Vstupne: **dobrovolne**
+- Potvrdena kapela: **Grass Device**
 
-## Rýchly štart
+## Technologicky stack
+- Next.js (App Router)
+- TypeScript
+- React
+- GitHub Actions (CI + Pages deploy)
+
+## Lokalne spustenie
 
 ```bash
-npm ci
-npm run lint
-npm test
-npm run build
+npm install
 npm run dev
 ```
 
+Aplikacia bezi na `http://127.0.0.1:5173`.
+
 ## Skripty
-- `npm run dev`: lokálny server na `http://localhost:5173`
-- `npm run lint`: kontrola JS syntaxe + obsahových povinných textov
-- `npm test`: základná kontrola placeholder obsahu
-- `npm run build`: vytvorí produkčný priečinok `dist/`
+- `npm run dev`: lokalny vyvoj
+- `npm run lint`: TypeScript type-check
+- `npm test`: kontrola klucoveho obsahu
+- `npm run build`: staticky export do `out/`
+- `npm run start`: produkcne spustenie
 
-## Dokumentácia
-- Vývojové fázy: `docs/development-phases.md`
-- Technológie: `docs/technologies.md`
+## Struktura rout
+- `/`: aktualny rocnik
+- `/2026`: konkretna edicia
+- `/archiv`: prehlad rocnikov
 
-## GitHub Actions
-- `CI` workflow: lint/test/build na push a PR
-- `Deploy to GitHub Pages`: automatický deploy `dist/` z `main`
+## Dokumentacia
+- Vyvojove fazy: `docs/development-phases.md`
+- Technologie: `docs/technologies.md`

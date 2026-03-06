@@ -1,27 +1,21 @@
-# Fázy vývoja
+# Fazy vyvoja
 
-## Fáza 1: Discovery a obsah
-- Potvrdiť identitu festivalu, názov, logo, tón komunikácie.
-- Doplniť finálny zoznam 5 kapiel (zatiaľ 1/5 potvrdené: Grass Device).
-- Upresniť program (time slots), prevádzkové pravidlá a FAQ.
-- Pripraviť podklady pre mapu parkovania a mini mapu k Bufetu na dobrom mieste.
+## Faza 1: Data rocnikov
+- Potvrdzovat line-up pre aktualny rocnik.
+- Pridavat dalsie rocniky do `data/festivals.ts`.
+- Udrziavat konzistentnu strukturu: kapely, harmonogram, FAQ, mapy.
 
-## Fáza 2: UX/UI wireframe
-- Uzavrieť desktop + mobil wireframe sekcií: Hero, Lineup, Program, Mapy, FAQ, Kontakt.
-- Overiť čitateľnosť na mobile a kontrast.
-- Schváliť placeholder texty a dátum 5.9.2026.
+## Faza 2: Obsah a UX
+- Vyplnit placeholder texty realnym obsahom.
+- Doplnenie map (parkovanie + mini mapa k Bufetu na dobrom mieste).
+- Finalizovat mobilny a desktop rendering.
 
-## Fáza 3: Frontend implementácia
-- Implementovať HTML/CSS/JS podľa schváleného wireframu.
-- Doplniť odpočet, sticky navigáciu a responzívne breakpointy.
-- Priebežne nahrádzať placeholdery reálnym obsahom.
+## Faza 3: Kvalita
+- Type-check (`npm run lint`) a obsahovy test (`npm test`).
+- Kontrola semantiky a pristupnosti.
+- Kontrola ci je vsetko v slovenskom jazyku.
 
-## Fáza 4: Kvalita
-- Pridať checklist pre obsah (všetko po slovensky).
-- Testovať mobil/desktop + základnú prístupnosť (semantika, headingy, focus states).
-- Optimalizovať obrázky a meranie Core Web Vitals.
-
-## Fáza 5: Release
-- Nastaviť doménu, SEO meta, Open Graph.
-- Aktivovať GitHub Pages deploy cez workflow.
-- Urobiť release tag a short launch checklist.
+## Faza 4: Release
+- Merge do `main`.
+- Automaticky CI build.
+- Automaticky deploy na GitHub Pages.
