@@ -1,4 +1,5 @@
 import { HeroSlider } from '@/components/hero-slider';
+import { FeaturedArtistsSlider } from '@/components/featured-artists-slider';
 import { SiteHeader } from '@/components/site-header';
 import { SponsorsSlider } from '@/components/sponsors-slider';
 import type { FestivalEdition } from '@/data/festivals';
@@ -15,28 +16,7 @@ export function FestivalPage({ edition, showYearNav = true }: FestivalPageProps)
 
       <main>
         <HeroSlider edition={edition} />
-
-        <section className="section" id="kapely">
-          <div className="container">
-            <h2>Kapely</h2>
-            <p className="section-intro">Potvrdene vystupenia na jeden den.</p>
-            <div className="cards">
-              {edition.lineup.map((band) => (
-                <article
-                  key={band.name}
-                  className={band.status === 'confirmed' ? 'card card-confirmed' : 'card'}
-                >
-                  <p className={band.status === 'confirmed' ? 'status' : 'status status-pending'}>
-                    {band.status === 'confirmed' ? 'Potvrdene' : 'Rokovanie'}
-                  </p>
-                  <h3>{band.name}</h3>
-                  <p>{band.description}</p>
-                  <p className="time">Cas: {band.time}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
+        <FeaturedArtistsSlider bands={edition.lineup} />
 
         <section className="section section-alt" id="program">
           <div className="container">

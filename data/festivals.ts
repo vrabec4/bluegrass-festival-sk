@@ -5,6 +5,7 @@ export type Band = {
   status: BandStatus;
   time: string;
   description: string;
+  imageUrl: string;
 };
 
 export type ScheduleItem = {
@@ -149,30 +150,38 @@ export const festivalEditions: FestivalEdition[] = [
         status: 'confirmed',
         time: '15:00',
         description: 'Potvrdena kapela. Placeholder text.',
+        imageUrl:
+          'https://www.blueoxmusicfestival.com/wp-content/uploads/2025/09/CharleyCrockett-1.jpg',
       },
       {
         name: 'Kapela #2',
         status: 'pending',
         time: '16:00',
         description: 'Rokovanie prebieha. Placeholder text.',
+        imageUrl: 'https://www.blueoxmusicfestival.com/wp-content/uploads/2025/12/Magoo.jpg',
       },
       {
         name: 'Kapela #3',
         status: 'pending',
         time: '17:00',
         description: 'Rokovanie prebieha. Placeholder text.',
+        imageUrl:
+          'https://www.blueoxmusicfestival.com/wp-content/uploads/2025/11/MarcusKingBand.jpg',
       },
       {
         name: 'Kapela #4',
         status: 'pending',
         time: '18:30',
         description: 'Rokovanie prebieha. Placeholder text.',
+        imageUrl:
+          'https://www.blueoxmusicfestival.com/wp-content/uploads/2025/11/ImWithHer-2.jpg',
       },
       {
         name: 'Kapela #5',
         status: 'pending',
         time: '20:00',
         description: 'Rokovanie prebieha. Placeholder text.',
+        imageUrl: 'https://www.blueoxmusicfestival.com/wp-content/uploads/2025/10/Shadowgrass.jpg',
       },
     ],
     schedule: [

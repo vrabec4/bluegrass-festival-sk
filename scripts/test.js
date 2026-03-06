@@ -17,10 +17,13 @@ const data = read('data/festivals.ts');
 const hero = read('components/hero-slider.tsx');
 const sponsors = read('components/sponsors-slider.tsx');
 const header = read('components/site-header.tsx');
+const featured = read('components/featured-artists-slider.tsx');
 
 assertContains(page, 'Mapa parkovania aut', 'components/festival-page.tsx');
 assertContains(page, 'Mala mapa k Bufetu na dobrom mieste', 'components/festival-page.tsx');
 assertContains(hero, 'banner-slider-item', 'components/hero-slider.tsx');
+assertContains(hero, 'banner-slider-bottom-strip', 'components/hero-slider.tsx');
+assertContains(featured, 'featured-artists-slider slick-initialized slick-slider', 'components/featured-artists-slider.tsx');
 assertContains(sponsors, 'multi-sections-blocks-inner-item-sponsor-logos', 'components/sponsors-slider.tsx');
 assertContains(header, 'slide-nav-main', 'components/site-header.tsx');
 assertContains(data, 'Bluegrass na dobrom mieste', 'data/festivals.ts');
