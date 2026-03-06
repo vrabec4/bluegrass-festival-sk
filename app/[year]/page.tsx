@@ -8,6 +8,8 @@ type YearPageProps = {
   params: Promise<{ year: string }>;
 };
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   return festivalEditions.map((edition) => ({ year: String(edition.year) }));
 }
