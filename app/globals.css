@@ -852,8 +852,8 @@ summary {
 }
 
 .multi-sections-blocks-inner-item-sponsor-logos {
-  padding: 94px 0 120px;
-  background: var(--brand);
+  padding: 94px 0 160px;
+  background: transparent;
 }
 
 .multi-sections-blocks-inner-item-sponsor-logos .head h2 {
@@ -938,7 +938,7 @@ summary {
 
 .footer {
   border-top: 1px solid rgb(255 255 255 / 18%);
-  background: var(--brand);
+  background: #07111b;
   color: #fcefdd;
   padding: 3rem 0;
 }
