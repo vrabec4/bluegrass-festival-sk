@@ -38,7 +38,7 @@ export function SiteHeader({ edition, showYearNav }: SiteHeaderProps) {
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > window.innerHeight * 0.35);
+      setScrolled(window.scrollY > 2);
     };
 
     onScroll();

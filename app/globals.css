@@ -126,7 +126,7 @@ ol {
 }
 
 .main-header {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: space-between;
   gap: 1.1rem;
@@ -371,6 +371,10 @@ ol {
 
 .site-header.scrolled .top-header {
   display: none;
+}
+
+.site-header.scrolled .main-header {
+  display: flex;
 }
 
 .main-hero-banner {
@@ -1024,10 +1028,6 @@ summary {
 }
 
 @media (max-width: 640px) {
-  .top-header {
-    display: none;
-  }
-
   .main-header {
     padding: 15px 0;
   }
