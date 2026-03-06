@@ -62,7 +62,7 @@ export const festivalEditions: FestivalEdition[] = [
     voluntaryEntryLabel: 'Vstupne dobrovolne',
     heroSlides: [
       {
-        imageUrl: 'https://www.blueoxmusicfestival.com/wp-content/uploads/2025/10/RDP3230.jpg',
+        imageUrl: '/images/bluegrass-logo-hero.webp',
         heading: 'BLUEGRASS NA DOBROM MIESTE',
         actions: [
           { label: 'Program dna', href: '#program' },
