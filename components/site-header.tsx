@@ -1,8 +1,12 @@
 'use client';
 
 import Link from 'next/link';
+import { Menu } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
 import { Countdown } from '@/components/countdown';
+import { Button } from '@/components/ui/button';
+import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
+import { cn } from '@/lib/utils';
 import type { FestivalEdition } from '@/data/festivals';
 
 type SiteHeaderProps = {
@@ -38,7 +42,7 @@ export function SiteHeader({ edition, showYearNav }: SiteHeaderProps) {
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 2);
+      setScrolled(window.scrollY > 8);
     };
 
     onScroll();
@@ -46,122 +50,116 @@ export function SiteHeader({ edition, showYearNav }: SiteHeaderProps) {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  useEffect(() => {
-    document.body.classList.toggle('menu-open', menuOpen);
-    return () => {
-      document.body.classList.remove('menu-open');
-    };
-  }, [menuOpen]);
-
-  function closeMenu() {
-    setMenuOpen(false);
-  }
-
   return (
-    <header className={`site-header header-home ${scrolled ? 'scrolled' : ''}`} id="domov">
-      <div className="top-header">
-        <div className="container">
-          <div className="top-header-inner">
-            <p>
-              COUNTDOWN TO {edition.title.toUpperCase()} {edition.year}
-            </p>
-            <Countdown startIso={edition.countdownStartsAtIso} endIso={edition.startsAtIso} />
-          </div>
+    <header id="domov" className="sticky top-0 z-50 border-b border-white/15 bg-[#0a2731]/95 backdrop-blur-md">
+      <div
+        className={cn(
+          'overflow-hidden border-b border-white/10 bg-white text-[#222] transition-all duration-300',
+          scrolled ? 'max-h-0 opacity-0' : 'max-h-28 opacity-100',
+        )}
+      >
+        <div className="mx-auto flex w-[min(1310px,92vw)] flex-wrap items-center justify-center gap-2 py-2 text-center">
+          <p className="text-sm font-bold sm:text-base">
+            COUNTDOWN TO {edition.title.toUpperCase()} {edition.year}
+          </p>
+          <Countdown startIso={edition.countdownStartsAtIso} endIso={edition.startsAtIso} />
         </div>
       </div>
 
-      <div className="main-header container">
-        <div className="main-header-left">
-          <button
-            type="button"
-            className="hamburger-desk"
-            aria-label="Otvorit menu"
-            aria-expanded={menuOpen}
-            onClick={() => setMenuOpen(true)}
-          >
-            <span className="hamburger-desk-inner">
-              <span />
-              <span />
-              <span />
-            </span>
-          </button>
-          <a className="logo" href="#domov">
-            {edition.title}
-          </a>
-        </div>
+      <div
+        className={cn(
+          'overflow-hidden transition-all duration-300',
+          scrolled ? 'max-h-28 opacity-100' : 'pointer-events-none max-h-0 opacity-0',
+        )}
+      >
+        <div className="mx-auto flex w-[min(1310px,92vw)] items-center justify-between gap-3 py-4">
+          <div className="flex items-center gap-3">
+            <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
+              <SheetTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="h-11 w-11 rounded-lg border border-white/20 bg-white/5 text-[#fcefdd] hover:bg-white/10"
+                  aria-label="Otvorit menu"
+                >
+                  <Menu className="size-5" />
+                </Button>
+              </SheetTrigger>
 
-        <nav id="site-navigation" className="top-nav main-navigation" aria-label="Hlavna navigacia">
-          <ul className="nav-menu">
-            {navItems.map((item) => (
-              <li key={item.href}>
-                {item.isInternalRoute ? (
-                  <Link href={item.href}>{item.label}</Link>
-                ) : (
-                  <a href={item.href}>{item.label}</a>
-                )}
-              </li>
-            ))}
-          </ul>
-        </nav>
+              <SheetContent className="slide-nav-main">
+                <SheetHeader>
+                  <SheetTitle>{edition.title}</SheetTitle>
+                </SheetHeader>
 
-        <a className="btn header-cta" href="#program">
-          Program dna
-        </a>
-      </div>
+                <nav className="space-y-1" aria-label="Mobilna navigacia">
+                  {navItems.map((item) => (
+                    <div key={`mobile-${item.href}`}>
+                      {item.isInternalRoute ? (
+                        <SheetClose asChild>
+                          <Link className="block rounded-md px-3 py-2 text-lg font-semibold hover:bg-white/10" href={item.href}>
+                            {item.label}
+                          </Link>
+                        </SheetClose>
+                      ) : (
+                        <SheetClose asChild>
+                          <a className="block rounded-md px-3 py-2 text-lg font-semibold hover:bg-white/10" href={item.href}>
+                            {item.label}
+                          </a>
+                        </SheetClose>
+                      )}
+                    </div>
+                  ))}
+                </nav>
 
-      <div className="slide-nav">
-        <aside className={`slide-nav-main ${menuOpen ? 'open' : ''}`} aria-hidden={!menuOpen}>
-          <button type="button" className="close-nav" onClick={closeMenu} aria-label="Zavriet menu" />
+                <div className="mt-8 border-t border-white/10 pt-6">
+                  <div className="space-y-1 text-sm text-[#fff6e8]/90">
+                    <SheetClose asChild>
+                      <a className="block rounded-md px-3 py-2 hover:bg-white/10" href="#program">
+                        Harmonogram
+                      </a>
+                    </SheetClose>
+                    <SheetClose asChild>
+                      <a className="block rounded-md px-3 py-2 hover:bg-white/10" href="#mapy">
+                        Parkovanie
+                      </a>
+                    </SheetClose>
+                    <SheetClose asChild>
+                      <a className="block rounded-md px-3 py-2 hover:bg-white/10" href="#faq">
+                        Prakticke info
+                      </a>
+                    </SheetClose>
+                  </div>
+                </div>
+              </SheetContent>
+            </Sheet>
 
-          <div className="header">
-            <div className="logo slide-logo">{edition.title}</div>
+            <a className="text-sm font-black uppercase tracking-[0.2em] text-[#f3b026] sm:text-base" href="#domov">
+              {edition.title}
+            </a>
           </div>
 
-          <div className="nav">
-            <ul id="menu-primary-menu" className="nav-menu">
+          <nav className="hidden lg:block" aria-label="Hlavna navigacia">
+            <ul className="flex items-center gap-7 text-sm font-semibold uppercase tracking-[0.12em] text-[#fff6e8]">
               {navItems.map((item) => (
-                <li key={`mobile-${item.href}`}>
+                <li key={item.href}>
                   {item.isInternalRoute ? (
-                    <Link href={item.href} onClick={closeMenu}>
+                    <Link className="transition-colors hover:text-[#f3b026]" href={item.href}>
                       {item.label}
                     </Link>
                   ) : (
-                    <a href={item.href} onClick={closeMenu}>
+                    <a className="transition-colors hover:text-[#f3b026]" href={item.href}>
                       {item.label}
                     </a>
                   )}
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
-          <div className="nav-2">
-            <ul className="nav-menu">
-              <li>
-                <a href="#program" onClick={closeMenu}>
-                  Harmonogram
-                </a>
-              </li>
-              <li>
-                <a href="#mapy" onClick={closeMenu}>
-                  Parkovanie
-                </a>
-              </li>
-              <li>
-                <a href="#faq" onClick={closeMenu}>
-                  Prakticke info
-                </a>
-              </li>
-            </ul>
-          </div>
-        </aside>
-
-        <button
-          type="button"
-          className={`overlay ${menuOpen ? 'visible' : ''}`}
-          aria-label="Zavriet menu"
-          onClick={closeMenu}
-        />
+          <Button asChild className="hidden sm:inline-flex">
+            <a href="#program">Program dna</a>
+          </Button>
+        </div>
       </div>
     </header>
   );

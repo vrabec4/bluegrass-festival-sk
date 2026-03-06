@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
+import { cn } from '@/lib/utils';
 
 type CountdownProps = {
   startIso: string;
@@ -61,12 +62,15 @@ export function Countdown({ startIso, endIso }: CountdownProps) {
     return () => clearInterval(intervalId);
   }, [startTimestamp, endTimestamp]);
 
+  const boxClass =
+    'inline-flex h-8 min-w-8 items-center justify-center rounded-md border border-[#164859] bg-[repeating-linear-gradient(#164859_50%,#397387_200%)] px-1.5 text-base font-bold leading-none text-white sm:h-9 sm:min-w-9 sm:text-xl';
+
   return (
-    <ul className="countdown-header countdown" aria-label="Odpocet do festivalu">
-      <li className={`countdown-box ${state.showDays ? '' : 'is-hidden'}`}>{state.days}</li>
-      <li className="countdown-box">{state.hours}</li>
-      <li className="countdown-box">{state.minutes}</li>
-      <li className="countdown-box">{state.seconds}</li>
+    <ul className="flex list-none items-center gap-1" aria-label="Odpocet do festivalu">
+      <li className={cn(boxClass, !state.showDays && 'hidden')}>{state.days}</li>
+      <li className={boxClass}>{state.hours}</li>
+      <li className={boxClass}>{state.minutes}</li>
+      <li className={boxClass}>{state.seconds}</li>
     </ul>
   );
 }

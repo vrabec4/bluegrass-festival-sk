@@ -1,6 +1,8 @@
 'use client';
 
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
+import { Button } from '@/components/ui/button';
 import type { SponsorLogo } from '@/data/festivals';
 
 type SponsorsSliderProps = {
@@ -64,32 +66,58 @@ export function SponsorsSlider({ sponsors }: SponsorsSliderProps) {
   }
 
   return (
-    <div className="multi-sections-blocks-inner-item-sponsor-logos" id="sponzori">
-      <div className="head">
-        <h2>THANK YOU SPONSORS</h2>
-      </div>
-      <div className="multi-sections-blocks-inner-item-sponsor-logos-list">
-        <div className="our_sponsors_slider slick-initialized slick-slider">
-          <button type="button" className="sponsor-arrow slick-prev" onClick={goPrev} aria-label="Predchadzajuci sponsor" />
+    <section className="multi-sections-blocks-inner-item-sponsor-logos sponsors-bg relative overflow-hidden py-24 md:py-32" id="sponzori">
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(9,28,54,0.62)_0%,rgba(8,24,39,0.42)_48%,rgba(4,14,24,0.80)_100%)]" />
+
+      <div className="relative mx-auto w-[min(1800px,96vw)]">
+        <h2 className="text-center text-4xl font-black uppercase tracking-[0.1em] text-[#f3b026] md:text-5xl">Thank You Sponsors</h2>
+
+        <div className="our_sponsors_slider slick-initialized slick-slider mt-8 flex items-center gap-3 md:mt-10 md:gap-4 md:px-5">
+          <Button
+            type="button"
+            variant="secondary"
+            size="icon"
+            className="h-12 w-11 rounded-xl bg-[#164859]/80 md:h-[74px] md:w-16"
+            onClick={goPrev}
+            aria-label="Predchadzajuci sponsor"
+          >
+            <ChevronLeft className="size-5" />
+          </Button>
+
           <div
-            className="our_sponsors_track"
+            className="grid flex-1 auto-rows-[minmax(92px,auto)] gap-x-3 gap-y-2 md:auto-rows-[minmax(120px,auto)] md:gap-x-4"
             style={{ gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))` }}
           >
             {visibleSponsors.map((sponsor) => (
-              <div
-                key={`${sponsor.name}-${sponsor.creamLogoUrl}`}
-                className="multi-sections-blocks-inner-item-sponsor-logos-list-item"
-              >
-                <a href={sponsor.url} target="_blank" rel="noreferrer">
-                  <img className="sponsor-cream-logo" src={sponsor.creamLogoUrl} alt={sponsor.name} />
-                  <img className="sponsor-gold-logo" src={sponsor.goldLogoUrl} alt={sponsor.name} />
+              <div key={`${sponsor.name}-${sponsor.creamLogoUrl}`} className="group relative flex min-h-[110px] items-center justify-center p-2">
+                <a href={sponsor.url} target="_blank" rel="noreferrer" className="relative block w-full">
+                  <img
+                    className="mx-auto block w-[122px] max-w-full transition-opacity duration-300 md:w-[168px] group-hover:opacity-0"
+                    src={sponsor.creamLogoUrl}
+                    alt={sponsor.name}
+                  />
+                  <img
+                    className="pointer-events-none absolute inset-0 m-auto w-[122px] max-w-[calc(100%-20px)] opacity-0 transition-opacity duration-300 md:w-[168px] group-hover:opacity-100"
+                    src={sponsor.goldLogoUrl}
+                    alt={sponsor.name}
+                  />
                 </a>
               </div>
             ))}
           </div>
-          <button type="button" className="sponsor-arrow slick-next" onClick={goNext} aria-label="Dalsi sponsor" />
+
+          <Button
+            type="button"
+            variant="secondary"
+            size="icon"
+            className="h-12 w-11 rounded-xl bg-[#164859]/80 md:h-[74px] md:w-16"
+            onClick={goNext}
+            aria-label="Dalsi sponsor"
+          >
+            <ChevronRight className="size-5" />
+          </Button>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

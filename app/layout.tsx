@@ -10,8 +10,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="sk">
       <body>
-        <div className="body-bg">
-          <div id="page">{children}</div>
+        <div className="festival-shell">
+          <div className="festival-overlay min-h-screen">{children}</div>
         </div>
       </body>
     </html>
