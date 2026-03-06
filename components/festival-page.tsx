@@ -1,5 +1,6 @@
-import Link from 'next/link';
-import { Countdown } from '@/components/countdown';
+import { HeroSlider } from '@/components/hero-slider';
+import { SiteHeader } from '@/components/site-header';
+import { SponsorsSlider } from '@/components/sponsors-slider';
 import type { FestivalEdition } from '@/data/festivals';
 
 type FestivalPageProps = {
@@ -10,45 +11,10 @@ type FestivalPageProps = {
 export function FestivalPage({ edition, showYearNav = true }: FestivalPageProps) {
   return (
     <>
-      <header className="header" id="domov">
-        <div className="container nav-wrap">
-          <a className="logo" href="#domov">
-            {edition.title}
-          </a>
-          <nav className="nav">
-            <a href="#kapely">Kapely</a>
-            <a href="#program">Program</a>
-            <a href="#mapy">Mapy</a>
-            <a href="#faq">FAQ</a>
-            <a href="#kontakt">Kontakt</a>
-            {showYearNav ? <Link href="/archiv">Archiv</Link> : null}
-          </nav>
-          <a className="btn btn-small" href="#program">
-            Program dna
-          </a>
-        </div>
-      </header>
+      <SiteHeader edition={edition} showYearNav={showYearNav} />
 
       <main>
-        <section className="hero section">
-          <div className="container hero-inner">
-            <p className="eyebrow">{edition.title}</p>
-            <h1>{edition.title}</h1>
-            <p className="hero-meta">
-              {edition.dateLabel} | {edition.location}
-            </p>
-            <p className="badge">{edition.voluntaryEntryLabel}</p>
-            <Countdown targetIso={edition.startsAtIso} />
-            <div className="hero-cta">
-              <a className="btn" href="#kapely">
-                Pozriet lineup
-              </a>
-              <a className="btn btn-ghost" href="#mapy">
-                Ako sa sem dostat
-              </a>
-            </div>
-          </div>
-        </section>
+        <HeroSlider edition={edition} />
 
         <section className="section" id="kapely">
           <div className="container">
@@ -75,6 +41,7 @@ export function FestivalPage({ edition, showYearNav = true }: FestivalPageProps)
         <section className="section section-alt" id="program">
           <div className="container">
             <h2>Program dna</h2>
+            <p className="badge">{edition.voluntaryEntryLabel}</p>
             <ol className="timeline">
               {edition.schedule.map((item) => (
                 <li key={`${item.time}-${item.label}`}>
@@ -116,6 +83,8 @@ export function FestivalPage({ edition, showYearNav = true }: FestivalPageProps)
             </div>
           </div>
         </section>
+
+        <SponsorsSlider sponsors={edition.sponsors} />
       </main>
 
       <footer className="footer" id="kontakt">

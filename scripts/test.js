@@ -14,9 +14,15 @@ function assertContains(content, expected, file) {
 
 const page = read('components/festival-page.tsx');
 const data = read('data/festivals.ts');
+const hero = read('components/hero-slider.tsx');
+const sponsors = read('components/sponsors-slider.tsx');
+const header = read('components/site-header.tsx');
 
 assertContains(page, 'Mapa parkovania aut', 'components/festival-page.tsx');
 assertContains(page, 'Mala mapa k Bufetu na dobrom mieste', 'components/festival-page.tsx');
+assertContains(hero, 'banner-slider-item', 'components/hero-slider.tsx');
+assertContains(sponsors, 'multi-sections-blocks-inner-item-sponsor-logos', 'components/sponsors-slider.tsx');
+assertContains(header, 'slide-nav-main', 'components/site-header.tsx');
 assertContains(data, 'Bluegrass na dobrom mieste', 'data/festivals.ts');
 assertContains(data, 'Grass Device', 'data/festivals.ts');
 assertContains(data, '5.9.2026', 'data/festivals.ts');

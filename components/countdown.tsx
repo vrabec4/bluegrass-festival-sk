@@ -3,7 +3,8 @@
 import { useEffect, useMemo, useState } from 'react';
 
 type CountdownProps = {
-  targetIso: string;
+  startIso: string;
+  endIso: string;
 };
 
 type CountdownState = {
@@ -11,67 +12,61 @@ type CountdownState = {
   hours: string;
   minutes: string;
   seconds: string;
-  done: boolean;
+  showDays: boolean;
 };
 
 function pad(value: number): string {
   return String(value).padStart(2, '0');
 }
 
-function calculate(targetTimestamp: number): CountdownState {
-  const diff = targetTimestamp - Date.now();
+function calculate(startTimestamp: number, endTimestamp: number): CountdownState {
+  const now = Date.now();
 
-  if (diff <= 0) {
+  if (now < startTimestamp || now >= endTimestamp) {
     return {
       days: '00',
       hours: '00',
       minutes: '00',
       seconds: '00',
-      done: true,
+      showDays: false,
     };
   }
 
-  const totalSeconds = Math.floor(diff / 1000);
+  const totalSeconds = Math.floor((endTimestamp - now) / 1000);
   const days = Math.floor(totalSeconds / (24 * 3600));
   const hours = Math.floor((totalSeconds % (24 * 3600)) / 3600);
   const minutes = Math.floor((totalSeconds % 3600) / 60);
   const seconds = totalSeconds % 60;
+  const totalHours = days * 24 + hours;
 
   return {
     days: pad(days),
     hours: pad(hours),
     minutes: pad(minutes),
     seconds: pad(seconds),
-    done: false,
+    showDays: totalHours >= 24,
   };
 }
 
-export function Countdown({ targetIso }: CountdownProps) {
-  const targetTimestamp = useMemo(() => new Date(targetIso).getTime(), [targetIso]);
-  const [state, setState] = useState<CountdownState>(() => calculate(targetTimestamp));
+export function Countdown({ startIso, endIso }: CountdownProps) {
+  const startTimestamp = useMemo(() => new Date(startIso).getTime(), [startIso]);
+  const endTimestamp = useMemo(() => new Date(endIso).getTime(), [endIso]);
+  const [state, setState] = useState<CountdownState>(() => calculate(startTimestamp, endTimestamp));
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setState(calculate(targetTimestamp));
+      setState(calculate(startTimestamp, endTimestamp));
     }, 1000);
 
     return () => clearInterval(intervalId);
-  }, [targetTimestamp]);
-
-  if (state.done) {
-    return (
-      <div className="countdown" aria-label="Festival prebieha">
-        <span>Festival prave prebieha</span>
-      </div>
-    );
-  }
+  }, [startTimestamp, endTimestamp]);
 
   return (
-    <div className="countdown" aria-label="Odpocet do festivalu">
-      <span>DD: {state.days}</span>
-      <span>HH: {state.hours}</span>
-      <span>MM: {state.minutes}</span>
-      <span>SS: {state.seconds}</span>
-    </div>
+    <ul className="countdown-header countdown" aria-label="Odpocet do festivalu">
+      <li className={`countdown-box ${state.showDays ? '' : 'is-hidden'}`}>{state.days}</li>
+      <li className="countdown-box">{state.hours}</li>
+      <li className="countdown-box">{state.minutes}</li>
+      <li className="countdown-box">{state.seconds}</li>
+    </ul>
   );
 }
