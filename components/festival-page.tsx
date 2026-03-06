@@ -6,11 +6,14 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import type { FestivalEdition } from '@/data/festivals';
+import { createTranslator, defaultLocale } from '@/lib/i18n';
 
 type FestivalPageProps = {
   edition: FestivalEdition;
   showYearNav?: boolean;
 };
+
+const t = createTranslator(defaultLocale);
 
 export function FestivalPage({ edition, showYearNav = true }: FestivalPageProps) {
   return (
@@ -23,7 +26,7 @@ export function FestivalPage({ edition, showYearNav = true }: FestivalPageProps)
 
         <section className="bg-[#fff6e8] py-16 text-[#222] md:py-20" id="program">
           <div className="mx-auto w-[min(1310px,92vw)]">
-            <h2 className="text-3xl font-black uppercase tracking-[0.14em] text-[#0a2731] md:text-4xl">Program dna</h2>
+            <h2 className="text-3xl font-black uppercase tracking-[0.14em] text-[#0a2731] md:text-4xl">{t('festival.programTitle')}</h2>
             <p className="mt-3 inline-flex rounded-full border border-[#164859] bg-[#f3b026]/20 px-4 py-1 text-xs font-bold uppercase tracking-[0.1em] text-[#164859]">
               {edition.voluntaryEntryLabel}
             </p>
@@ -47,29 +50,29 @@ export function FestivalPage({ edition, showYearNav = true }: FestivalPageProps)
 
         <section className="py-16 md:py-20" id="mapy">
           <div className="mx-auto w-[min(1310px,92vw)]">
-            <h2 className="text-3xl font-black uppercase tracking-[0.14em] text-[#f3b026] md:text-4xl">Mapy a orientacia</h2>
+            <h2 className="text-3xl font-black uppercase tracking-[0.14em] text-[#f3b026] md:text-4xl">{t('festival.mapsTitle')}</h2>
             <div className="mt-6 grid gap-5 md:grid-cols-2">
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-2xl">Mapa parkovania aut</CardTitle>
+                  <CardTitle className="text-2xl">{t('festival.parkingMapTitle')}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="grid h-56 place-items-center rounded-xl border-2 border-dashed border-[#fcefdd]/35 bg-[linear-gradient(135deg,rgba(255,255,255,0.08)_0%,rgba(0,179,231,0.15)_100%)] p-4 text-center text-[#fff6e8]/90">
-                    Velka mapa parkovacich zon (placeholder)
+                    {t('festival.parkingMapPlaceholder')}
                   </div>
-                  <p className="text-sm text-[#fff6e8]/90">Prichod/odchod a smerove sipky: placeholder.</p>
+                  <p className="text-sm text-[#fff6e8]/90">{t('festival.parkingHint')}</p>
                 </CardContent>
               </Card>
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-2xl">Mala mapa k Bufetu na dobrom mieste</CardTitle>
+                  <CardTitle className="text-2xl">{t('festival.buffetMapTitle')}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="grid h-44 place-items-center rounded-xl border-2 border-dashed border-[#fcefdd]/35 bg-[linear-gradient(135deg,rgba(255,255,255,0.08)_0%,rgba(0,179,231,0.15)_100%)] p-4 text-center text-[#fff6e8]/90">
-                    Mini mapa peso (placeholder)
+                    {t('festival.buffetMapPlaceholder')}
                   </div>
-                  <p className="text-sm text-[#fff6e8]/90">Orientacny cas peso: placeholder.</p>
+                  <p className="text-sm text-[#fff6e8]/90">{t('festival.walkHint')}</p>
                 </CardContent>
               </Card>
             </div>
@@ -78,7 +81,7 @@ export function FestivalPage({ edition, showYearNav = true }: FestivalPageProps)
 
         <section className="bg-[#fff6e8] py-16 text-[#222] md:py-20" id="faq">
           <div className="mx-auto w-[min(1310px,92vw)]">
-            <h2 className="text-3xl font-black uppercase tracking-[0.14em] text-[#0a2731] md:text-4xl">FAQ</h2>
+            <h2 className="text-3xl font-black uppercase tracking-[0.14em] text-[#0a2731] md:text-4xl">{t('festival.faqTitle')}</h2>
             <Accordion type="single" collapsible className="mt-6 space-y-3">
               {edition.faqs.map((faq, index) => (
                 <AccordionItem key={faq.question} value={`item-${index}`} className="bg-white text-[#222]">
@@ -95,14 +98,14 @@ export function FestivalPage({ edition, showYearNav = true }: FestivalPageProps)
 
       <footer className="border-t border-white/20 bg-[#07111b] py-12" id="kontakt">
         <div className="mx-auto w-[min(1310px,92vw)]">
-          <h2 className="text-3xl font-black uppercase tracking-[0.12em] text-[#f3b026] md:text-4xl">Kontakt</h2>
+          <h2 className="text-3xl font-black uppercase tracking-[0.12em] text-[#f3b026] md:text-4xl">{t('festival.contactTitle')}</h2>
           <div className="mt-4 space-y-1 text-[#fff6e8]/95">
-            <p>Organizator: placeholder</p>
-            <p>E-mail: placeholder@example.com | Telefon: +421 xxx xxx xxx</p>
+            <p>{t('festival.organizer')}</p>
+            <p>{t('festival.contactLine')}</p>
           </div>
           <div className="mt-6">
             <Button asChild variant="outline" size="sm">
-              <a href="#domov">Spat hore</a>
+              <a href="#domov">{t('festival.backToTop')}</a>
             </Button>
           </div>
           <p className="mt-5 text-sm text-[#fff6e8]/80">

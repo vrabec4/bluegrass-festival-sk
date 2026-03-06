@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Menu } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
 import { Countdown } from '@/components/countdown';
+import { useI18n } from '@/components/providers/i18n-provider';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
@@ -21,24 +22,25 @@ type NavItem = {
 };
 
 export function SiteHeader({ edition, showYearNav }: SiteHeaderProps) {
+  const { t } = useI18n();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   const navItems = useMemo<NavItem[]>(() => {
     const base: NavItem[] = [
-      { href: '#kapely', label: 'Kapely' },
-      { href: '#program', label: 'Program' },
-      { href: '#mapy', label: 'Mapy' },
-      { href: '#faq', label: 'FAQ' },
-      { href: '#kontakt', label: 'Kontakt' },
+      { href: '#kapely', label: t('header.nav.bands') },
+      { href: '#program', label: t('header.nav.program') },
+      { href: '#mapy', label: t('header.nav.maps') },
+      { href: '#faq', label: t('header.nav.faq') },
+      { href: '#kontakt', label: t('header.nav.contact') },
     ];
 
     if (showYearNav) {
-      base.push({ href: '/archiv', label: 'Archiv', isInternalRoute: true });
+      base.push({ href: '/archiv', label: t('header.nav.archive'), isInternalRoute: true });
     }
 
     return base;
-  }, [showYearNav]);
+  }, [showYearNav, t]);
 
   useEffect(() => {
     const onScroll = () => {
@@ -60,7 +62,10 @@ export function SiteHeader({ edition, showYearNav }: SiteHeaderProps) {
       >
         <div className="mx-auto flex w-[min(1310px,92vw)] flex-wrap items-center justify-center gap-2 py-2 text-center">
           <p className="text-sm font-bold sm:text-base">
-            COUNTDOWN TO {edition.title.toUpperCase()} {edition.year}
+            {t('header.countdownTo', {
+              title: edition.title.toUpperCase(),
+              year: edition.year,
+            })}
           </p>
           <Countdown startIso={edition.countdownStartsAtIso} endIso={edition.startsAtIso} />
         </div>
@@ -80,7 +85,7 @@ export function SiteHeader({ edition, showYearNav }: SiteHeaderProps) {
                   variant="ghost"
                   size="icon"
                   className="h-11 w-11 rounded-lg border border-white/20 bg-white/5 text-[#fcefdd] hover:bg-white/10"
-                  aria-label="Otvorit menu"
+                  aria-label={t('header.openMenu')}
                 >
                   <Menu className="size-5" />
                 </Button>
@@ -91,7 +96,7 @@ export function SiteHeader({ edition, showYearNav }: SiteHeaderProps) {
                   <SheetTitle>{edition.title}</SheetTitle>
                 </SheetHeader>
 
-                <nav className="space-y-1" aria-label="Mobilna navigacia">
+                <nav className="space-y-1" aria-label={t('header.mobileNav')}>
                   {navItems.map((item) => (
                     <div key={`mobile-${item.href}`}>
                       {item.isInternalRoute ? (
@@ -115,17 +120,17 @@ export function SiteHeader({ edition, showYearNav }: SiteHeaderProps) {
                   <div className="space-y-1 text-sm text-[#fff6e8]/90">
                     <SheetClose asChild>
                       <a className="block rounded-md px-3 py-2 hover:bg-white/10" href="#program">
-                        Harmonogram
+                        {t('header.harmony')}
                       </a>
                     </SheetClose>
                     <SheetClose asChild>
                       <a className="block rounded-md px-3 py-2 hover:bg-white/10" href="#mapy">
-                        Parkovanie
+                        {t('header.parking')}
                       </a>
                     </SheetClose>
                     <SheetClose asChild>
                       <a className="block rounded-md px-3 py-2 hover:bg-white/10" href="#faq">
-                        Prakticke info
+                        {t('header.practicalInfo')}
                       </a>
                     </SheetClose>
                   </div>
@@ -138,7 +143,7 @@ export function SiteHeader({ edition, showYearNav }: SiteHeaderProps) {
             </a>
           </div>
 
-          <nav className="hidden lg:block" aria-label="Hlavna navigacia">
+          <nav className="hidden lg:block" aria-label={t('header.mainNav')}>
             <ul className="flex items-center gap-7 text-sm font-semibold uppercase tracking-[0.12em] text-[#fff6e8]">
               {navItems.map((item) => (
                 <li key={item.href}>
@@ -157,7 +162,7 @@ export function SiteHeader({ edition, showYearNav }: SiteHeaderProps) {
           </nav>
 
           <Button asChild className="hidden sm:inline-flex">
-            <a href="#program">Program dna</a>
+            <a href="#program">{t('header.programToday')}</a>
           </Button>
         </div>
       </div>

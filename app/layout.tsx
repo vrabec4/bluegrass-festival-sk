@@ -1,18 +1,27 @@
 import type { Metadata } from 'next';
+import { I18nProvider } from '@/components/providers/i18n-provider';
+import { createTranslator, defaultLocale, getMessages } from '@/lib/i18n';
 import './globals.css';
 
+const locale = defaultLocale;
+const t = createTranslator(locale);
+
 export const metadata: Metadata = {
-  title: 'Bluegrass na dobrom mieste',
-  description: 'Jednodnovy bluegrass festival na Slovensku. 5 kapiel, jeden den, vstupne dobrovolne.',
+  title: t('metadata.siteTitle'),
+  description: t('metadata.siteDescription'),
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const messages = getMessages(locale);
+
   return (
-    <html lang="sk">
+    <html lang={locale}>
       <body>
-        <div className="festival-shell">
-          <div className="festival-overlay min-h-screen">{children}</div>
-        </div>
+        <I18nProvider locale={locale} messages={messages}>
+          <div className="festival-shell">
+            <div className="festival-overlay min-h-screen">{children}</div>
+          </div>
+        </I18nProvider>
       </body>
     </html>
   );

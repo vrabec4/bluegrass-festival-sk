@@ -2,6 +2,7 @@
 
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
+import { useI18n } from '@/components/providers/i18n-provider';
 import { Button } from '@/components/ui/button';
 import type { SponsorLogo } from '@/data/festivals';
 
@@ -19,6 +20,7 @@ function getSlidesToShow(width: number): number {
 }
 
 export function SponsorsSlider({ sponsors }: SponsorsSliderProps) {
+  const { t } = useI18n();
   const [startIndex, setStartIndex] = useState(0);
   const [columns, setColumns] = useState(7);
   const pageSize = columns * 2;
@@ -70,7 +72,7 @@ export function SponsorsSlider({ sponsors }: SponsorsSliderProps) {
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(9,28,54,0.62)_0%,rgba(8,24,39,0.42)_48%,rgba(4,14,24,0.80)_100%)]" />
 
       <div className="relative mx-auto w-[min(1800px,96vw)]">
-        <h2 className="text-center text-4xl font-black uppercase tracking-[0.1em] text-[#f3b026] md:text-5xl">Thank You Sponsors</h2>
+        <h2 className="text-center text-4xl font-black uppercase tracking-[0.1em] text-[#f3b026] md:text-5xl">{t('sponsors.title')}</h2>
 
         <div className="our_sponsors_slider slick-initialized slick-slider mt-8 flex items-center gap-3 md:mt-10 md:gap-4 md:px-5">
           <Button
@@ -79,7 +81,7 @@ export function SponsorsSlider({ sponsors }: SponsorsSliderProps) {
             size="icon"
             className="h-12 w-11 rounded-xl bg-[#164859]/80 md:h-[74px] md:w-16"
             onClick={goPrev}
-            aria-label="Predchadzajuci sponsor"
+            aria-label={t('sponsors.previousSponsor')}
           >
             <ChevronLeft className="size-5" />
           </Button>
@@ -112,7 +114,7 @@ export function SponsorsSlider({ sponsors }: SponsorsSliderProps) {
             size="icon"
             className="h-12 w-11 rounded-xl bg-[#164859]/80 md:h-[74px] md:w-16"
             onClick={goNext}
-            aria-label="Dalsi sponsor"
+            aria-label={t('sponsors.nextSponsor')}
           >
             <ChevronRight className="size-5" />
           </Button>

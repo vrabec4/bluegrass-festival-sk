@@ -2,6 +2,7 @@
 
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { useI18n } from '@/components/providers/i18n-provider';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import type { FestivalEdition } from '@/data/festivals';
@@ -11,6 +12,7 @@ type HeroSliderProps = {
 };
 
 export function HeroSlider({ edition }: HeroSliderProps) {
+  const { t } = useI18n();
   const slides = edition.heroSlides;
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -80,7 +82,7 @@ export function HeroSlider({ edition }: HeroSliderProps) {
           size="icon"
           className="absolute left-4 top-1/2 z-20 -translate-y-1/2 rounded-xl bg-[#164859]/80 sm:left-8"
           onClick={goPrev}
-          aria-label="Predchadzajuci slide"
+          aria-label={t('hero.previousSlide')}
         >
           <ChevronLeft className="size-5" />
         </Button>
@@ -91,12 +93,12 @@ export function HeroSlider({ edition }: HeroSliderProps) {
           size="icon"
           className="absolute right-4 top-1/2 z-20 -translate-y-1/2 rounded-xl bg-[#164859]/80 sm:right-8"
           onClick={goNext}
-          aria-label="Dalsi slide"
+          aria-label={t('hero.nextSlide')}
         >
           <ChevronRight className="size-5" />
         </Button>
 
-        <ul className="absolute bottom-24 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2" aria-label="Vyber slide">
+        <ul className="absolute bottom-24 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2" aria-label={t('hero.selectSlide')}>
           {slides.map((slide, index) => (
             <li key={`dot-${slide.heading}`}>
               <button
@@ -106,7 +108,7 @@ export function HeroSlider({ edition }: HeroSliderProps) {
                   index === activeIndex ? 'w-7 bg-[#f3b026] border-[#f3b026]' : 'bg-transparent hover:bg-white/30',
                 )}
                 onClick={() => goTo(index)}
-                aria-label={`Slide ${index + 1}`}
+                aria-label={t('hero.slideLabel', { index: index + 1 })}
               />
             </li>
           ))}

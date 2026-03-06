@@ -2,6 +2,7 @@
 
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
+import { useI18n } from '@/components/providers/i18n-provider';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
@@ -22,6 +23,7 @@ function clamp(value: number, min: number, max: number): number {
 }
 
 export function FeaturedArtistsSlider({ bands }: FeaturedArtistsSliderProps) {
+  const { t } = useI18n();
   const [activeIndex, setActiveIndex] = useState(0);
   const [slidesToShow, setSlidesToShow] = useState(5);
 
@@ -71,10 +73,8 @@ export function FeaturedArtistsSlider({ bands }: FeaturedArtistsSliderProps) {
   return (
     <section className="py-16 md:py-24" id="kapely">
       <div className="mx-auto w-[min(1310px,92vw)]">
-        <h2 className="text-center text-4xl font-black uppercase tracking-[0.16em] text-[#f3b026] md:text-5xl">Kapely</h2>
-        <p className="mt-2 text-center text-sm uppercase tracking-[0.16em] text-[#fff6e8]/70">
-          featured-artists-slider slick-initialized slick-slider
-        </p>
+        <h2 className="text-center text-4xl font-black uppercase tracking-[0.16em] text-[#f3b026] md:text-5xl">{t('featured.title')}</h2>
+        <p className="mt-2 text-center text-sm uppercase tracking-[0.16em] text-[#fff6e8]/70">{t('featured.sliderLabel')}</p>
 
         <div className="relative mt-8 md:mt-10">
           <Button
@@ -83,7 +83,7 @@ export function FeaturedArtistsSlider({ bands }: FeaturedArtistsSliderProps) {
             size="icon"
             className="absolute left-0 top-1/2 z-20 hidden -translate-y-1/2 rounded-xl bg-[#164859]/80 md:inline-flex"
             onClick={goPrev}
-            aria-label="Predchadzajuca kapela"
+            aria-label={t('featured.previousBand')}
           >
             <ChevronLeft className="size-5" />
           </Button>
@@ -134,7 +134,7 @@ export function FeaturedArtistsSlider({ bands }: FeaturedArtistsSliderProps) {
             size="icon"
             className="absolute right-0 top-1/2 z-20 hidden -translate-y-1/2 rounded-xl bg-[#164859]/80 md:inline-flex"
             onClick={goNext}
-            aria-label="Dalsia kapela"
+            aria-label={t('featured.nextBand')}
           >
             <ChevronRight className="size-5" />
           </Button>
@@ -142,7 +142,7 @@ export function FeaturedArtistsSlider({ bands }: FeaturedArtistsSliderProps) {
 
         <div className="mt-9 flex justify-center">
           <Button asChild>
-            <a href="#program">Zobrazit cely harmonogram</a>
+            <a href="#program">{t('featured.fullSchedule')}</a>
           </Button>
         </div>
       </div>
