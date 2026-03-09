@@ -16,6 +16,13 @@ type FestivalPageProps = {
 const t = createTranslator(defaultLocale);
 
 export function FestivalPage({ edition, showYearNav = true }: FestivalPageProps) {
+  const venueLatitude = 48.1889274;
+  const venueLongitude = 17.1275887;
+  const venueCoordinates = `${venueLatitude}/${venueLongitude}`;
+  const liveMapUrl = `https://www.freemap.sk/?map=16/${venueCoordinates}&layers=X`;
+  const parkingMapUrl = `https://www.freemap.sk/?map=14/${venueCoordinates}&layers=X&tool=route-planner&points=${venueCoordinates},&transport=car`;
+  const venueMapUrl = `https://www.freemap.sk/?map=17/${venueCoordinates}&layers=X&tool=route-planner&points=${venueCoordinates},&transport=foot`;
+
   return (
     <>
       <SiteHeader edition={edition} showYearNav={showYearNav} />
@@ -51,31 +58,39 @@ export function FestivalPage({ edition, showYearNav = true }: FestivalPageProps)
         <section className="py-16 md:py-20" id="mapy">
           <div className="mx-auto w-[min(1310px,92vw)]">
             <h2 className="text-3xl font-black uppercase tracking-[0.14em] text-[#f3b026] md:text-4xl">{t('festival.mapsTitle')}</h2>
-            <div className="mt-6 grid gap-5 md:grid-cols-2">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-2xl">{t('festival.parkingMapTitle')}</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="grid h-56 place-items-center rounded-xl border-2 border-dashed border-[#fcefdd]/35 bg-[linear-gradient(135deg,rgba(255,255,255,0.08)_0%,rgba(0,179,231,0.15)_100%)] p-4 text-center text-[#fff6e8]/90">
-                    {t('festival.parkingMapPlaceholder')}
-                  </div>
-                  <p className="text-sm text-[#fff6e8]/90">{t('festival.parkingHint')}</p>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-2xl">{t('festival.buffetMapTitle')}</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="grid h-44 place-items-center rounded-xl border-2 border-dashed border-[#fcefdd]/35 bg-[linear-gradient(135deg,rgba(255,255,255,0.08)_0%,rgba(0,179,231,0.15)_100%)] p-4 text-center text-[#fff6e8]/90">
-                    {t('festival.buffetMapPlaceholder')}
-                  </div>
-                  <p className="text-sm text-[#fff6e8]/90">{t('festival.walkHint')}</p>
-                </CardContent>
-              </Card>
-            </div>
+            <Card className="mt-6">
+              <CardHeader>
+                <CardTitle className="text-2xl">{t('festival.liveMapTitle')}</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <iframe
+                  src={liveMapUrl}
+                  title={t('festival.liveMapTitle')}
+                  className="h-64 w-full rounded-xl border border-[#fcefdd]/35 bg-[#07111b] md:h-80"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+                <p className="text-sm text-[#fff6e8]/90">{t('festival.liveMapHint')}</p>
+                <div className="flex flex-wrap gap-4">
+                  <a
+                    href={parkingMapUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex text-sm font-bold uppercase tracking-[0.08em] text-[#f3b026] transition hover:text-[#ffe3a8]"
+                  >
+                    {t('festival.openDrivingMapLink')}
+                  </a>
+                  <a
+                    href={venueMapUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex text-sm font-bold uppercase tracking-[0.08em] text-[#f3b026] transition hover:text-[#ffe3a8]"
+                  >
+                    {t('festival.openWalkingMapLink')}
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </section>
 
