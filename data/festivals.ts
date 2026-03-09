@@ -75,15 +75,12 @@ export const festivalEditions: FestivalEdition[] = [
         imageFit: 'contain',
         imagePosition: 'center',
         heading: 'BLUEGRASS NA DOBROM MIESTE',
-        actions: [
-          { label: 'Program dňa', href: '#program' },
-          { label: 'Mapa parkovania', href: '#mapy' },
-        ],
+        actions: [{ label: 'Mapa parkovania', href: '#mapy' }],
       },
       {
         imageUrl: '/images/BNDM.jpeg',
-        imageFit: 'contain',
-        imagePosition: 'center',
+        imageFit: 'cover',
+        imagePosition: 'center 72%',
         heading: 'JEDEN DEŇ, 5 KAPIEL',
         actions: [{ label: 'Pozrieť lineup', href: '#kapely' }],
       },

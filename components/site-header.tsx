@@ -84,7 +84,7 @@ export function SiteHeader({ edition, showYearNav }: SiteHeaderProps) {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="h-11 w-11 rounded-lg border border-white/20 bg-white/5 text-[#fcefdd] hover:bg-white/10"
+                  className="h-11 w-11 rounded-lg border border-white/20 bg-white/5 text-[#fcefdd] hover:bg-white/10 lg:hidden"
                   aria-label={t('header.openMenu')}
                 >
                   <Menu className="size-5" />
@@ -161,9 +161,6 @@ export function SiteHeader({ edition, showYearNav }: SiteHeaderProps) {
             </ul>
           </nav>
 
-          <Button asChild className="hidden sm:inline-flex">
-            <a href="#program">{t('header.programToday')}</a>
-          </Button>
         </div>
       </div>
     </header>
