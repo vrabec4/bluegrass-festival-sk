@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useI18n } from '@/components/providers/i18n-provider';
 import type { SponsorLogo } from '@/data/festivals';
 
@@ -18,6 +18,26 @@ function getSlidesToShow(width: number): number {
 export function SponsorsSlider({ sponsors }: SponsorsSliderProps) {
   const { t } = useI18n();
   const [columns, setColumns] = useState(1);
+  const sponsorCards = useMemo(
+    () =>
+      sponsors.map((sponsor) => (
+        <div key={`${sponsor.name}-${sponsor.creamLogoUrl}`} className="group relative flex min-h-[210px] items-center justify-center p-2">
+          <a href={sponsor.url} target="_blank" rel="noreferrer" className="relative block w-full">
+            <img
+              className="mx-auto block w-[220px] max-w-full transition-opacity duration-300 md:w-[340px] xl:w-[390px] group-hover:opacity-0"
+              src={sponsor.creamLogoUrl}
+              alt={sponsor.name}
+            />
+            <img
+              className="pointer-events-none absolute inset-0 m-auto w-[220px] max-w-[calc(100%-8px)] opacity-0 transition-opacity duration-300 md:w-[340px] xl:w-[390px] group-hover:opacity-100"
+              src={sponsor.goldLogoUrl}
+              alt={sponsor.name}
+            />
+          </a>
+        </div>
+      )),
+    [sponsors],
+  );
 
   useEffect(() => {
     const onResize = () => {
@@ -42,22 +62,7 @@ export function SponsorsSlider({ sponsors }: SponsorsSliderProps) {
             className="grid auto-rows-[minmax(190px,auto)] gap-x-3 gap-y-1 md:auto-rows-[minmax(240px,auto)] md:gap-x-4 md:gap-y-1"
             style={{ gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))` }}
           >
-            {sponsors.map((sponsor) => (
-              <div key={`${sponsor.name}-${sponsor.creamLogoUrl}`} className="group relative flex min-h-[210px] items-center justify-center p-2">
-                <a href={sponsor.url} target="_blank" rel="noreferrer" className="relative block w-full">
-                  <img
-                    className="mx-auto block w-[220px] max-w-full transition-opacity duration-300 md:w-[340px] xl:w-[390px] group-hover:opacity-0"
-                    src={sponsor.creamLogoUrl}
-                    alt={sponsor.name}
-                  />
-                  <img
-                    className="pointer-events-none absolute inset-0 m-auto w-[220px] max-w-[calc(100%-8px)] opacity-0 transition-opacity duration-300 md:w-[340px] xl:w-[390px] group-hover:opacity-100"
-                    src={sponsor.goldLogoUrl}
-                    alt={sponsor.name}
-                  />
-                </a>
-              </div>
-            ))}
+            {sponsorCards}
           </div>
         </div>
       </div>

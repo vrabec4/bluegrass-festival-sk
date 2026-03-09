@@ -20,8 +20,8 @@ const header = read('components/site-header.tsx');
 const featured = read('components/featured-artists-slider.tsx');
 const i18nMessages = read('lib/i18n/messages.ts');
 
-assertContains(page, "t('festival.parkingMapTitle')", 'components/festival-page.tsx');
-assertContains(page, "t('festival.buffetMapTitle')", 'components/festival-page.tsx');
+assertContains(page, "t('festival.liveMapTitle')", 'components/festival-page.tsx');
+assertContains(page, "t('festival.openDrivingMapLink')", 'components/festival-page.tsx');
 assertContains(hero, 'banner-slider-item', 'components/hero-slider.tsx');
 assertContains(hero, 'banner-slider-bottom-strip', 'components/hero-slider.tsx');
 assertContains(featured, "t('featured.sliderLabel')", 'components/featured-artists-slider.tsx');
@@ -32,6 +32,6 @@ assertContains(i18nMessages, "buffetMapTitle: 'Malá mapa k Bufetu na dobrom mie
 assertContains(data, 'Bluegrass na dobrom mieste', 'data/festivals.ts');
 assertContains(data, 'Grass Device', 'data/festivals.ts');
 assertContains(data, '5.9.2026', 'data/festivals.ts');
-assertContains(data, 'Vstupne dobrovolne', 'data/festivals.ts');
+assertContains(data, 'Vstupné dobrovoľné', 'data/festivals.ts');
 
 console.log('Test OK');

@@ -1,145 +1,51 @@
 'use client';
 
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { useI18n } from '@/components/providers/i18n-provider';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { cn } from '@/lib/utils';
 import type { Band } from '@/data/festivals';
 
 type FeaturedArtistsSliderProps = {
   bands: Band[];
 };
 
-function getSlidesToShow(width: number): number {
-  if (width <= 700) return 1;
-  if (width <= 1100) return 3;
-  return 5;
-}
-
-function clamp(value: number, min: number, max: number): number {
-  return Math.min(max, Math.max(min, value));
-}
-
 export function FeaturedArtistsSlider({ bands }: FeaturedArtistsSliderProps) {
   const { t } = useI18n();
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [slidesToShow, setSlidesToShow] = useState(5);
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+  const bandCards = useMemo(
+    () =>
+      bands.map((band) => {
+        const imageUrl = band.imageUrl.startsWith('/') ? `${basePath}${band.imageUrl}` : band.imageUrl;
 
-  useEffect(() => {
-    const onResize = () => {
-      setSlidesToShow(getSlidesToShow(window.innerWidth));
-    };
-
-    onResize();
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
-  }, []);
-
-  useEffect(() => {
-    if (bands.length <= 1) {
-      return;
-    }
-
-    const timerId = setInterval(() => {
-      setActiveIndex((current) => (current + 1) % bands.length);
-    }, 4200);
-
-    return () => clearInterval(timerId);
-  }, [bands.length]);
-
-  const slideWidth = useMemo(() => 100 / slidesToShow, [slidesToShow]);
-
-  const translateX = useMemo(() => {
-    if (bands.length <= slidesToShow) {
-      return 0;
-    }
-
-    const centerOffset = Math.floor(slidesToShow / 2) * slideWidth;
-    const rawTranslate = centerOffset - activeIndex * slideWidth;
-    const minTranslate = -(bands.length - slidesToShow) * slideWidth;
-    return clamp(rawTranslate, minTranslate, 0);
-  }, [activeIndex, bands.length, slideWidth, slidesToShow]);
-
-  function goPrev() {
-    setActiveIndex((current) => (current === 0 ? bands.length - 1 : current - 1));
-  }
-
-  function goNext() {
-    setActiveIndex((current) => (current + 1) % bands.length);
-  }
+        return (
+          <Card
+            key={`${band.name}-${band.time}`}
+            className="h-full overflow-hidden border-white/10 bg-[#0e2231]/70 transition-all duration-300 hover:scale-[1.02] hover:border-[#f3b026]/60 hover:shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
+          >
+            <a href="#program" title={band.name}>
+              <div className="aspect-[4/3] overflow-hidden bg-[radial-gradient(circle_at_50%_20%,rgba(20,60,82,0.65)_0%,rgba(7,17,27,0.95)_100%)]">
+                <img src={imageUrl} alt={band.name} loading="lazy" className="h-full w-full object-contain transition duration-500" />
+              </div>
+              <div className="space-y-1 p-5 text-center">
+                <h3 className="text-xl font-bold uppercase tracking-[0.08em] text-[#fcefdd]">{band.name}</h3>
+                <div className="text-2xl font-black text-[#f3b026]">{band.time}</div>
+              </div>
+            </a>
+          </Card>
+        );
+      }),
+    [bands, basePath],
+  );
 
   return (
     <section className="py-16 md:py-24" id="kapely">
-      <div className="mx-auto w-[min(1310px,92vw)]">
+      <div className="mx-auto w-[min(1480px,95vw)]">
         <h2 className="text-center text-4xl font-black uppercase tracking-[0.16em] text-[#f3b026] md:text-5xl">{t('featured.title')}</h2>
         <p className="mt-2 text-center text-sm uppercase tracking-[0.16em] text-[#fff6e8]/70">{t('featured.sliderLabel')}</p>
 
-        <div className="relative mt-8 md:mt-10">
-          <Button
-            type="button"
-            variant="secondary"
-            size="icon"
-            className="absolute left-0 top-1/2 z-20 hidden -translate-y-1/2 rounded-xl bg-[#164859]/80 md:inline-flex"
-            onClick={goPrev}
-            aria-label={t('featured.previousBand')}
-          >
-            <ChevronLeft className="size-5" />
-          </Button>
-
-          <div className="overflow-hidden px-0 md:px-14">
-            <div
-              className="flex transition-transform duration-500"
-              style={{
-                width: `${bands.length * slideWidth}%`,
-                transform: `translate3d(${translateX}%, 0px, 0px)`,
-              }}
-            >
-              {bands.map((band, index) => {
-                const isCurrent = index === activeIndex;
-                const imageUrl = band.imageUrl.startsWith('/') ? `${basePath}${band.imageUrl}` : band.imageUrl;
-
-                return (
-                  <div key={`${band.name}-${band.time}`} className="px-2 py-4" style={{ width: `${slideWidth}%` }}>
-                    <Card
-                      className={cn(
-                        'h-full overflow-hidden border-white/10 bg-[#0e2231]/70 transition-all duration-300',
-                        isCurrent && 'scale-[1.03] border-[#f3b026]/60 shadow-[0_20px_50px_rgba(0,0,0,0.4)]',
-                      )}
-                    >
-                      <a href="#program" title={band.name}>
-                        <div className="aspect-[3/4] overflow-hidden">
-                          <img
-                            src={imageUrl}
-                            alt={band.name}
-                            loading="lazy"
-                            className={cn('h-full w-full object-cover transition duration-500', isCurrent && 'scale-105')}
-                          />
-                        </div>
-                        <div className="space-y-1 p-4 text-center">
-                          <h3 className="text-lg font-bold uppercase tracking-[0.08em] text-[#fcefdd]">{band.name}</h3>
-                          <div className="text-xl font-black text-[#f3b026]">{band.time}</div>
-                        </div>
-                      </a>
-                    </Card>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          <Button
-            type="button"
-            variant="secondary"
-            size="icon"
-            className="absolute right-0 top-1/2 z-20 hidden -translate-y-1/2 rounded-xl bg-[#164859]/80 md:inline-flex"
-            onClick={goNext}
-            aria-label={t('featured.nextBand')}
-          >
-            <ChevronRight className="size-5" />
-          </Button>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 md:mt-10">
+          {bandCards}
         </div>
 
         <div className="mt-9 flex justify-center">

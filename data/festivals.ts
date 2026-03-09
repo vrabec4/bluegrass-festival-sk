@@ -68,7 +68,7 @@ export const festivalEditions: FestivalEdition[] = [
     countdownStartsAtIso: '2025-09-05T00:00:00+02:00',
     startsAtIso: '2026-09-05T14:00:00+02:00',
     location: 'Bufet na dobrom mieste',
-    voluntaryEntryLabel: 'Vstupne dobrovolne',
+    voluntaryEntryLabel: 'Vstupné dobrovoľné',
     heroSlides: [
       {
         imageUrl: '/images/logo.jpeg',
@@ -76,19 +76,21 @@ export const festivalEditions: FestivalEdition[] = [
         imagePosition: 'center',
         heading: 'BLUEGRASS NA DOBROM MIESTE',
         actions: [
-          { label: 'Program dna', href: '#program' },
+          { label: 'Program dňa', href: '#program' },
           { label: 'Mapa parkovania', href: '#mapy' },
         ],
       },
       {
-        imageUrl: 'https://www.blueoxmusicfestival.com/wp-content/uploads/2026/01/Aerial_Banner.jpg',
-        heading: 'JEDEN DEN, 5 KAPIEL',
-        actions: [{ label: 'Pozriet lineup', href: '#kapely' }],
+        imageUrl: '/images/BNDM.jpeg',
+        imageFit: 'contain',
+        imagePosition: 'center',
+        heading: 'JEDEN DEŇ, 5 KAPIEL',
+        actions: [{ label: 'Pozrieť lineup', href: '#kapely' }],
       },
       {
         imageUrl: 'https://www.blueoxmusicfestival.com/wp-content/uploads/2026/02/Art-in-the-Pines.jpg',
-        heading: 'VSTUPNE JE DOBROVOLNE',
-        actions: [{ label: 'Prakticke info', href: '#faq' }],
+        heading: 'VSTUPNÉ JE DOBROVOĽNÉ',
+        actions: [{ label: 'Praktické info', href: '#faq' }],
       },
     ],
     sponsors: [
@@ -103,7 +105,7 @@ export const festivalEditions: FestivalEdition[] = [
         ...localSponsorLogos('coall'),
       },
       {
-        name: 'Country Club Sheriff Tovarniky',
+        name: 'Country Club Sheriff Tovarníky',
         url: '#',
         ...localSponsorLogos('sheriff-tovarniky'),
       },
@@ -117,21 +119,26 @@ export const festivalEditions: FestivalEdition[] = [
         url: '#',
         ...localSponsorLogos('nexusrtm'),
       },
+      {
+        name: 'Bufet na dobrom mieste',
+        url: '#',
+        ...localSponsorLogos('bufet-na-dobrom-mieste'),
+      },
     ],
     lineup: [
       {
         name: 'Grass Device',
         status: 'confirmed',
         time: '15:00',
-        description: 'Potvrdena kapela. Placeholder text.',
+        description: 'Potvrdená kapela. Placeholder text.',
         imageUrl: '/images/grass-device.webp',
       },
       {
-        name: 'Kapela #2',
+        name: 'Union Citygrass',
         status: 'pending',
         time: '16:00',
         description: 'Rokovanie prebieha. Placeholder text.',
-        imageUrl: 'https://www.blueoxmusicfestival.com/wp-content/uploads/2025/12/Magoo.jpg',
+        imageUrl: '/images/sponsors/UCG.png',
       },
       {
         name: 'Kapela #3',
@@ -158,9 +165,9 @@ export const festivalEditions: FestivalEdition[] = [
       },
     ],
     schedule: [
-      { time: '14:00', label: 'Otvorenie arealu' },
+      { time: '14:00', label: 'Otvorenie areálu' },
       { time: '15:00', label: 'Grass Device' },
-      { time: '16:00', label: 'Kapela #2' },
+      { time: '16:00', label: 'Union Citygrass' },
       { time: '17:00', label: 'Kapela #3' },
       { time: '18:00', label: 'Prestavka' },
       { time: '18:30', label: 'Kapela #4' },
@@ -169,16 +176,16 @@ export const festivalEditions: FestivalEdition[] = [
     ],
     faqs: [
       {
-        question: 'Kedy sa otvara areal?',
-        answer: 'Areal sa otvara o 14:00. Placeholder odpoved.',
+        question: 'Kedy sa otvára areál?',
+        answer: 'Areál sa otvára o 14:00. Placeholder odpoveď.',
       },
       {
-        question: 'Da sa platit kartou alebo hotovostou?',
-        answer: 'Platba je placeholder, finalna informacia bude doplnena.',
+        question: 'Dá sa platiť kartou alebo hotovosťou?',
+        answer: 'Platba je placeholder, finálna informácia bude doplnená.',
       },
       {
-        question: 'Kde presne zaparkovat?',
-        answer: 'Pozri sekciu Mapy a orientacia. Placeholder odpoved.',
+        question: 'Kde presne zaparkovať?',
+        answer: 'Pozri sekciu Mapy a orientácia. Placeholder odpoveď.',
       },
     ],
   },
