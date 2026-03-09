@@ -198,8 +198,7 @@ export const festivalEditions: FestivalEdition[] = [
         status: 'confirmed',
         time: '15:00',
         description: 'Potvrdena kapela. Placeholder text.',
-        imageUrl:
-          'https://www.blueoxmusicfestival.com/wp-content/uploads/2025/09/CharleyCrockett-1.jpg',
+        imageUrl: '/images/grass-device.webp',
       },
       {
         name: 'Kapela #2',

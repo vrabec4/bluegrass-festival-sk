@@ -18,7 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang={locale}>
       <body>
         <I18nProvider locale={locale} messages={messages}>
-          <div className="festival-shell">
+          <div className="festival-shell" id="top">
             <div className="festival-overlay min-h-screen">{children}</div>
           </div>
         </I18nProvider>

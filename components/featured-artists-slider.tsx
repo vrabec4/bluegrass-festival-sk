@@ -26,6 +26,7 @@ export function FeaturedArtistsSlider({ bands }: FeaturedArtistsSliderProps) {
   const { t } = useI18n();
   const [activeIndex, setActiveIndex] = useState(0);
   const [slidesToShow, setSlidesToShow] = useState(5);
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
 
   useEffect(() => {
     const onResize = () => {
@@ -98,6 +99,7 @@ export function FeaturedArtistsSlider({ bands }: FeaturedArtistsSliderProps) {
             >
               {bands.map((band, index) => {
                 const isCurrent = index === activeIndex;
+                const imageUrl = band.imageUrl.startsWith('/') ? `${basePath}${band.imageUrl}` : band.imageUrl;
 
                 return (
                   <div key={`${band.name}-${band.time}`} className="px-2 py-4" style={{ width: `${slideWidth}%` }}>
@@ -110,7 +112,7 @@ export function FeaturedArtistsSlider({ bands }: FeaturedArtistsSliderProps) {
                       <a href="#program" title={band.name}>
                         <div className="aspect-[3/4] overflow-hidden">
                           <img
-                            src={band.imageUrl}
+                            src={imageUrl}
                             alt={band.name}
                             loading="lazy"
                             className={cn('h-full w-full object-cover transition duration-500', isCurrent && 'scale-105')}

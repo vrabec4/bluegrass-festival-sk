@@ -1,9 +1,9 @@
+import { ArrowUp } from 'lucide-react';
 import { FeaturedArtistsSlider } from '@/components/featured-artists-slider';
 import { HeroSlider } from '@/components/hero-slider';
 import { SiteHeader } from '@/components/site-header';
 import { SponsorsSlider } from '@/components/sponsors-slider';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import type { FestivalEdition } from '@/data/festivals';
 import { createTranslator, defaultLocale } from '@/lib/i18n';
@@ -103,16 +103,19 @@ export function FestivalPage({ edition, showYearNav = true }: FestivalPageProps)
             <p>{t('festival.organizer')}</p>
             <p>{t('festival.contactLine')}</p>
           </div>
-          <div className="mt-6">
-            <Button asChild variant="outline" size="sm">
-              <a href="#domov">{t('festival.backToTop')}</a>
-            </Button>
-          </div>
           <p className="mt-5 text-sm text-[#fff6e8]/80">
             © {edition.year} {edition.title}
           </p>
         </div>
       </footer>
+
+      <a
+        href="#top"
+        aria-label={t('festival.backToTop')}
+        className="fixed bottom-6 right-6 z-40 grid size-12 place-items-center rounded-full border border-[#f3b026]/70 bg-[#0a2731]/90 text-[#f3b026] shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition hover:-translate-y-0.5 hover:bg-[#164859]"
+      >
+        <ArrowUp className="size-5" />
+      </a>
     </>
   );
 }
