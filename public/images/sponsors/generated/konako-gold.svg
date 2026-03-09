@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="280" viewBox="0 0 920 280" role="img" aria-label="Konako s.r.o gold logo">
+  <defs>
+    <linearGradient id="kgbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#10283a"/>
+      <stop offset="100%" stop-color="#0c1f2d"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="916" height="276" rx="26" fill="url(#kgbg)" stroke="#f3b026" stroke-opacity="0.92" stroke-width="4"/>
+  <path d="M90 70v140M90 140h70M160 140l75-70M160 140l75 70" stroke="#f3b026" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M270 197c80-34 160-34 240 0s160 34 240 0" fill="none" stroke="#f3b026" stroke-opacity="0.75" stroke-width="8" stroke-linecap="round"/>
+  <text x="312" y="132" fill="#f3b026" font-size="84" font-weight="800" font-family="Arial, Helvetica, sans-serif" letter-spacing="2">KONAKO</text>
+  <text x="312" y="206" fill="#f3b026" fill-opacity="0.95" font-size="42" font-weight="600" font-family="Arial, Helvetica, sans-serif" letter-spacing="4">S.R.O</text>
+</svg>

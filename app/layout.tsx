@@ -9,6 +9,11 @@ const t = createTranslator(locale);
 export const metadata: Metadata = {
   title: t('metadata.siteTitle'),
   description: t('metadata.siteDescription'),
+  icons: {
+    icon: '/images/logo.jpeg',
+    shortcut: '/images/logo.jpeg',
+    apple: '/images/logo.jpeg',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

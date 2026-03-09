@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="280" viewBox="0 0 920 280" role="img" aria-label="Hardcode solutions cream logo">
+  <defs>
+    <linearGradient id="hbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#10283a"/>
+      <stop offset="100%" stop-color="#0a1b28"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="916" height="276" rx="26" fill="url(#hbg)" stroke="#fcefdd" stroke-opacity="0.35" stroke-width="4"/>
+  <path d="M84 95l-38 45 38 45M214 95l38 45-38 45M173 84l-48 112" fill="none" stroke="#fcefdd" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="285" y="150" fill="#fcefdd" font-size="90" font-weight="850" font-family="Arial, Helvetica, sans-serif" letter-spacing="2">HARDCODE</text>
+  <text x="286" y="218" fill="#fcefdd" fill-opacity="0.84" font-size="44" font-weight="600" font-family="Arial, Helvetica, sans-serif" letter-spacing="4">SOLUTIONS</text>
+</svg>

@@ -54,7 +54,13 @@ export function HeroSlider({ edition }: HeroSliderProps) {
                 'banner-slider-item absolute inset-0 transition-opacity duration-700',
                 index === activeIndex ? 'opacity-100' : 'pointer-events-none opacity-0',
               )}
-              style={{ backgroundImage: `url(${imageUrl})`, backgroundPosition: 'center', backgroundSize: 'cover' }}
+              style={{
+                backgroundImage: `url(${imageUrl})`,
+                backgroundPosition: slide.imagePosition ?? 'center',
+                backgroundSize: slide.imageFit ?? 'cover',
+                backgroundRepeat: 'no-repeat',
+                backgroundColor: '#061420',
+              }}
             >
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,20,32,0.25)_0%,rgba(6,20,32,0.74)_72%,rgba(6,20,32,0.9)_100%)]" />
 

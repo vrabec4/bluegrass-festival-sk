@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="280" viewBox="0 0 920 280" role="img" aria-label="LEE BEVERAGE logo cream">
+  <rect x="2" y="2" width="916" height="276" rx="26" fill="#0f2432" stroke="#fcefdd" stroke-opacity="0.35" stroke-width="4" />
+  <rect x="302" y="42" width="140" height="8" rx="4" fill="#fcefdd" fill-opacity="0.75" />
+  <circle cx="466" cy="228" r="9" fill="#fcefdd" fill-opacity="0.65" />
+  <text x="460" y="154" text-anchor="middle" fill="#fcefdd" font-size="58" font-weight="800" font-family="Arial, Helvetica, sans-serif" letter-spacing="3">LEE BEVERAGE</text>
+</svg>
