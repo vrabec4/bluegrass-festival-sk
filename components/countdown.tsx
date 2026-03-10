@@ -16,6 +16,14 @@ type CountdownState = {
   showDays: boolean;
 };
 
+const initialCountdownState: CountdownState = {
+  days: '00',
+  hours: '00',
+  minutes: '00',
+  seconds: '00',
+  showDays: false,
+};
+
 function pad(value: number): string {
   return String(value).padStart(2, '0');
 }
@@ -52,9 +60,11 @@ function calculate(startTimestamp: number, endTimestamp: number): CountdownState
 export function Countdown({ startIso, endIso }: CountdownProps) {
   const startTimestamp = useMemo(() => new Date(startIso).getTime(), [startIso]);
   const endTimestamp = useMemo(() => new Date(endIso).getTime(), [endIso]);
-  const [state, setState] = useState<CountdownState>(() => calculate(startTimestamp, endTimestamp));
+  const [state, setState] = useState<CountdownState>(initialCountdownState);
 
   useEffect(() => {
+    setState(calculate(startTimestamp, endTimestamp));
+
     const intervalId = setInterval(() => {
       setState(calculate(startTimestamp, endTimestamp));
     }, 1000);
