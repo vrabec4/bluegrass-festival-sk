@@ -101,6 +101,48 @@ export function FestivalPage({ edition, showYearNav = true }: FestivalPageProps)
                     {t('festival.openWalkingMapLink')}
                   </a>
                 </div>
+
+                <div className="grid gap-4 pt-2 md:grid-cols-2">
+                  <Card className="border-[#fcefdd]/20 bg-[#0a2731]/70">
+                    <CardHeader>
+                      <CardTitle className="text-lg text-[#f3b026]">{t('festival.parkingMapTitle')}</CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-3">
+                      <div className="rounded-lg border border-[#fcefdd]/20 bg-[#07111b] px-4 py-3 text-sm text-[#fff6e8]/80">
+                        {t('festival.parkingMapPlaceholder')}
+                      </div>
+                      <p className="text-sm text-[#fff6e8]/90">{t('festival.parkingHint')}</p>
+                      <a
+                        href={parkingMapUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex text-sm font-bold uppercase tracking-[0.08em] text-[#f3b026] transition hover:text-[#ffe3a8]"
+                      >
+                        {t('festival.openMapLink')}
+                      </a>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="border-[#fcefdd]/20 bg-[#0a2731]/70">
+                    <CardHeader>
+                      <CardTitle className="text-lg text-[#f3b026]">{t('festival.buffetMapTitle')}</CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-3">
+                      <div className="rounded-lg border border-[#fcefdd]/20 bg-[#07111b] px-4 py-3 text-sm text-[#fff6e8]/80">
+                        {t('festival.buffetMapPlaceholder')}
+                      </div>
+                      <p className="text-sm text-[#fff6e8]/90">{t('festival.walkHint')}</p>
+                      <a
+                        href={venueMapUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex text-sm font-bold uppercase tracking-[0.08em] text-[#f3b026] transition hover:text-[#ffe3a8]"
+                      >
+                        {t('festival.openMapLink')}
+                      </a>
+                    </CardContent>
+                  </Card>
+                </div>
               </CardContent>
             </Card>
           </div>
