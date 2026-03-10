@@ -28,6 +28,7 @@ export function SiteHeader({ edition, showYearNav }: SiteHeaderProps) {
 
   const navItems = useMemo<NavItem[]>(() => {
     const base: NavItem[] = [
+      { href: '#o-festivale', label: t('header.nav.about') },
       { href: '#kapely', label: t('header.nav.bands') },
       { href: '#program', label: t('header.nav.program') },
       { href: '#mapy', label: t('header.nav.maps') },

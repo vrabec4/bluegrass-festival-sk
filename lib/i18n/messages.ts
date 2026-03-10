@@ -22,6 +22,7 @@ export const messages = {
       parking: 'Parkovanie',
       practicalInfo: 'Praktické info',
       nav: {
+        about: 'O festivale',
         bands: 'Kapely',
         program: 'Program',
         maps: 'Mapy',
@@ -44,6 +45,13 @@ export const messages = {
       fullSchedule: 'Zobraziť celý harmonogram',
     },
     festival: {
+      aboutTitle: 'O festivale',
+      aboutLead:
+        'Bluegrass na dobrom mieste organizujeme po prvýkrát a dávame doň srdce, energiu aj nadšenie.',
+      aboutBodyOne:
+        'Naším cieľom je vytvoriť príjemný jednodňový festival, kde zaznie naša obľúbená bluegrass hudba v priateľskej atmosfére pre všetkých, ktorí majú radi poctivé koncerty naživo.',
+      aboutBodyTwo:
+        'Je to premiérový ročník, preto sa budeme snažiť urobiť maximum, aby ste si odniesli skvelý zážitok, dobrú náladu a chuť prísť aj nabudúce.',
       programTitle: 'Program dňa',
       mapsTitle: 'Mapy a orientácia',
       liveMapTitle: 'Interaktívna mapa festivalu',
@@ -61,6 +69,7 @@ export const messages = {
       contactTitle: 'Kontakt',
       organizer: 'Organizátor: placeholder',
       contactLine: 'E-mail: placeholder@example.com | Telefón: +421 xxx xxx xxx',
+      siteCredit: 'Created by Hardcode Solutions s.r.o.',
       backToTop: 'Späť hore',
     },
     sponsors: {

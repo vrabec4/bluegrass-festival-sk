@@ -29,6 +29,18 @@ export function FestivalPage({ edition, showYearNav = true }: FestivalPageProps)
 
       <main>
         <HeroSlider edition={edition} />
+
+        <section className="bg-[#fff6e8] py-16 text-[#222] md:py-20" id="o-festivale">
+          <div className="mx-auto w-[min(1310px,92vw)]">
+            <h2 className="text-3xl font-black uppercase tracking-[0.14em] text-[#0a2731] md:text-4xl">{t('festival.aboutTitle')}</h2>
+            <p className="mt-4 max-w-4xl text-lg font-semibold text-[#164859]">{t('festival.aboutLead')}</p>
+            <div className="mt-6 max-w-5xl space-y-4 text-base leading-relaxed text-[#222]/90">
+              <p>{t('festival.aboutBodyOne')}</p>
+              <p>{t('festival.aboutBodyTwo')}</p>
+            </div>
+          </div>
+        </section>
+
         <FeaturedArtistsSlider bands={edition.lineup} />
 
         <section className="bg-[#fff6e8] py-16 text-[#222] md:py-20" id="program">
@@ -117,6 +129,7 @@ export function FestivalPage({ edition, showYearNav = true }: FestivalPageProps)
           <div className="mt-4 space-y-1 text-[#fff6e8]/95">
             <p>{t('festival.organizer')}</p>
             <p>{t('festival.contactLine')}</p>
+            <p>{t('festival.siteCredit')}</p>
           </div>
           <p className="mt-5 text-sm text-[#fff6e8]/80">
             © {edition.year} {edition.title}
