@@ -25,7 +25,7 @@ export function FeaturedArtistsSlider({ bands }: FeaturedArtistsSliderProps) {
           >
             <a href="#program" title={band.name}>
               <div className="aspect-[4/3] overflow-hidden bg-[radial-gradient(circle_at_50%_20%,rgba(20,60,82,0.65)_0%,rgba(7,17,27,0.95)_100%)]">
-                <img src={imageUrl} alt={band.name} loading="lazy" className="h-full w-full object-contain transition duration-500" />
+                <img src={imageUrl} alt={band.name} loading="lazy" className="h-full w-full object-cover transition duration-500" />
               </div>
               <div className="space-y-1 p-5 text-center">
                 <h3 className="text-xl font-bold uppercase tracking-[0.08em] text-[#fcefdd]">{band.name}</h3>

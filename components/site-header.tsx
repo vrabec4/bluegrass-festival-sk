@@ -62,12 +62,7 @@ export function SiteHeader({ edition, showYearNav }: SiteHeaderProps) {
         )}
       >
         <div className="mx-auto flex w-[min(1310px,92vw)] flex-wrap items-center justify-center gap-2 py-2 text-center">
-          <p className="text-sm font-bold sm:text-base">
-            {t('header.countdownTo', {
-              title: edition.title.toUpperCase(),
-              year: edition.year,
-            })}
-          </p>
+          <p className="text-sm font-bold sm:text-base">{t('header.countdownTo')}</p>
           <Countdown startIso={edition.countdownStartsAtIso} endIso={edition.startsAtIso} />
         </div>
       </div>
@@ -145,7 +140,7 @@ export function SiteHeader({ edition, showYearNav }: SiteHeaderProps) {
           </div>
 
           <nav className="hidden lg:block" aria-label={t('header.mainNav')}>
-            <ul className="flex items-center gap-7 text-sm font-semibold uppercase tracking-[0.12em] text-[#fff6e8]">
+            <ul className="flex items-center gap-7 text-sm font-semibold uppercase tracking-[0.12em] text-[#fcefdd]">
               {navItems.map((item) => (
                 <li key={item.href}>
                   {item.isInternalRoute ? (

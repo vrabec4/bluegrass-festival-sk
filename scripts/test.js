@@ -27,8 +27,7 @@ assertContains(hero, 'banner-slider-bottom-strip', 'components/hero-slider.tsx')
 assertContains(featured, "t('featured.sliderLabel')", 'components/featured-artists-slider.tsx');
 assertContains(sponsors, 'multi-sections-blocks-inner-item-sponsor-logos', 'components/sponsors-slider.tsx');
 assertContains(header, 'slide-nav-main', 'components/site-header.tsx');
-assertContains(i18nMessages, "parkingMapTitle: 'Mapa parkovania áut'", 'lib/i18n/messages.ts');
-assertContains(i18nMessages, "buffetMapTitle: 'Malá mapa k Bufetu na dobrom mieste'", 'lib/i18n/messages.ts');
+assertContains(i18nMessages, "walkGuideTitle: 'Ako sa dostať pešo na festival'", 'lib/i18n/messages.ts');
 assertContains(data, 'Bluegrass na dobrom mieste', 'data/festivals.ts');
 assertContains(data, 'Grass Device', 'data/festivals.ts');
 assertContains(data, '5.9.2026', 'data/festivals.ts');

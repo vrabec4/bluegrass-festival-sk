@@ -6,7 +6,7 @@ import { SponsorsSlider } from '@/components/sponsors-slider';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import type { FestivalEdition } from '@/data/festivals';
-import { createTranslator, defaultLocale } from '@/lib/i18n';
+import { createTranslator, defaultLocale, getMessages } from '@/lib/i18n';
 
 type FestivalPageProps = {
   edition: FestivalEdition;
@@ -14,6 +14,7 @@ type FestivalPageProps = {
 };
 
 const t = createTranslator(defaultLocale);
+const messages = getMessages(defaultLocale);
 
 export function FestivalPage({ edition, showYearNav = true }: FestivalPageProps) {
   const venueLatitude = 48.1889274;
@@ -37,6 +38,8 @@ export function FestivalPage({ edition, showYearNav = true }: FestivalPageProps)
             <div className="mt-6 max-w-5xl space-y-4 text-base leading-relaxed text-[#222]/90">
               <p>{t('festival.aboutBodyOne')}</p>
               <p>{t('festival.aboutBodyTwo')}</p>
+              <p>{t('festival.aboutBodyThree')}</p>
+              <p>{t('festival.aboutBodyFour')}</p>
             </div>
           </div>
         </section>
@@ -46,9 +49,14 @@ export function FestivalPage({ edition, showYearNav = true }: FestivalPageProps)
         <section className="bg-[#fff6e8] py-16 text-[#222] md:py-20" id="program">
           <div className="mx-auto w-[min(1310px,92vw)]">
             <h2 className="text-3xl font-black uppercase tracking-[0.14em] text-[#0a2731] md:text-4xl">{t('festival.programTitle')}</h2>
-            <p className="mt-3 inline-flex rounded-full border border-[#164859] bg-[#f3b026]/20 px-4 py-1 text-xs font-bold uppercase tracking-[0.1em] text-[#164859]">
-              {edition.voluntaryEntryLabel}
-            </p>
+            <div className="mt-3 flex flex-wrap items-center gap-2">
+              <p className="inline-flex rounded-full border border-[#164859] bg-[#f3b026]/20 px-4 py-1 text-xs font-bold uppercase tracking-[0.1em] text-[#164859]">
+                {edition.voluntaryEntryLabel}
+              </p>
+              <p className="inline-flex rounded-full border border-[#164859] bg-white px-4 py-1 text-xs font-bold uppercase tracking-[0.1em] text-[#164859]">
+                {t('festival.programSound')}
+              </p>
+            </div>
 
             <Card className="mt-6 border-[#0a2731]/15 bg-white text-[#222] shadow-[0_20px_60px_rgba(10,39,49,0.12)]">
               <CardContent className="p-6 md:p-8">
@@ -102,46 +110,13 @@ export function FestivalPage({ edition, showYearNav = true }: FestivalPageProps)
                   </a>
                 </div>
 
-                <div className="grid gap-4 pt-2 md:grid-cols-2">
-                  <Card className="border-[#fcefdd]/20 bg-[#0a2731]/70">
-                    <CardHeader>
-                      <CardTitle className="text-lg text-[#f3b026]">{t('festival.parkingMapTitle')}</CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-3">
-                      <div className="rounded-lg border border-[#fcefdd]/20 bg-[#07111b] px-4 py-3 text-sm text-[#fff6e8]/80">
-                        {t('festival.parkingMapPlaceholder')}
-                      </div>
-                      <p className="text-sm text-[#fff6e8]/90">{t('festival.parkingHint')}</p>
-                      <a
-                        href={parkingMapUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex text-sm font-bold uppercase tracking-[0.08em] text-[#f3b026] transition hover:text-[#ffe3a8]"
-                      >
-                        {t('festival.openMapLink')}
-                      </a>
-                    </CardContent>
-                  </Card>
-
-                  <Card className="border-[#fcefdd]/20 bg-[#0a2731]/70">
-                    <CardHeader>
-                      <CardTitle className="text-lg text-[#f3b026]">{t('festival.buffetMapTitle')}</CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-3">
-                      <div className="rounded-lg border border-[#fcefdd]/20 bg-[#07111b] px-4 py-3 text-sm text-[#fff6e8]/80">
-                        {t('festival.buffetMapPlaceholder')}
-                      </div>
-                      <p className="text-sm text-[#fff6e8]/90">{t('festival.walkHint')}</p>
-                      <a
-                        href={venueMapUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex text-sm font-bold uppercase tracking-[0.08em] text-[#f3b026] transition hover:text-[#ffe3a8]"
-                      >
-                        {t('festival.openMapLink')}
-                      </a>
-                    </CardContent>
-                  </Card>
+                <div className="pt-2">
+                  <h3 className="text-lg font-bold text-[#f3b026]">{t('festival.walkGuideTitle')}</h3>
+                  <ol className="mt-3 list-decimal space-y-1 pl-5 text-sm leading-relaxed text-[#fff6e8]/90">
+                    {messages.festival.walkSteps.map((step) => (
+                      <li key={step}>{step}</li>
+                    ))}
+                  </ol>
                 </div>
               </CardContent>
             </Card>
@@ -170,7 +145,7 @@ export function FestivalPage({ edition, showYearNav = true }: FestivalPageProps)
           <h2 className="text-3xl font-black uppercase tracking-[0.12em] text-[#f3b026] md:text-4xl">{t('festival.contactTitle')}</h2>
           <div className="mt-4 space-y-1 text-[#fff6e8]/95">
             <p>{t('festival.organizer')}</p>
-            <p>{t('festival.contactLine')}</p>
+            {/* <p>{t('festival.contactLine')}</p> */}
             <p>{t('festival.siteCredit')}</p>
           </div>
           <p className="mt-5 text-sm text-[#fff6e8]/80">

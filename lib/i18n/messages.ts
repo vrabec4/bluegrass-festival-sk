@@ -13,7 +13,7 @@ export const messages = {
       archiveMissingTitle: 'Ročník nenájdený',
     },
     header: {
-      countdownTo: 'ODPOČET DO {title} {year}',
+      countdownTo: 'Do festivalu zostáva už len',
       openMenu: 'Otvoriť menu',
       mobileNav: 'Mobilná navigácia',
       mainNav: 'Hlavná navigácia',
@@ -47,27 +47,33 @@ export const messages = {
     festival: {
       aboutTitle: 'O festivale',
       aboutLead:
-        'Bluegrass na dobrom mieste organizujeme po prvýkrát a dávame doň srdce, energiu aj nadšenie.',
+        'Festival Bluegrass na dobrom mieste organizujeme po prvýkrát a dávame doň srdce, energiu aj úprimné nadšenie.',
       aboutBodyOne:
-        'Naším cieľom je vytvoriť príjemný jednodňový festival, kde zaznie naša obľúbená bluegrass hudba v priateľskej atmosfére pre všetkých, ktorí majú radi poctivé koncerty naživo.',
+        'Naším cieľom je vytvoriť príjemný jednodňový festival, ktorý prinesie nielen kvalitnú bluegrass hudbu, ale aj pohodovú atmosféru, stretnutia s ľuďmi a pekný kultúrny zážitok pre všetkých návštevníkov.',
       aboutBodyTwo:
-        'Je to premiérový ročník, preto sa budeme snažiť urobiť maximum, aby ste si odniesli skvelý zážitok, dobrú náladu a chuť prísť aj nabudúce.',
-      programTitle: 'Program dňa',
+        'Chceme zároveň podporiť a spropagovať bluegrassovú muziku, ktorá má svoje čaro, silu aj jedinečnú energiu. Veríme, že si táto hudba zaslúži viac priestoru, viac poslucháčov a miesto, kde môže znieť naplno a naživo. Aj preto sme sa rozhodli pripraviť festival, ktorý spojí fanúšikov tohto žánru, hudobníkov aj všetkých, ktorí radi objavujú poctivú hudbu hranú od srdca.',
+      aboutBodyThree:
+        'Našou snahou je dopriať ľuďom príjemný kultúrny program aj v nedeľu — deň, ktorý sa často nesie v pokojnejšom duchu a ponúka priestor na oddych, stretnutia a dobrú hudbu. Chceme, aby si k nám návštevníci prišli užiť deň plný hudby, pohody a priateľskej atmosféry na dobrom mieste.',
+      aboutBodyFour:
+        'Keďže ide o premiérový ročník, budeme sa snažiť urobiť maximum pre to, aby ste si odniesli skvelý zážitok, dobrú náladu a chuť prísť aj nabudúce. Veríme, že práve tento prvý ročník položí základ krásnej tradícii a festivalu, na ktorý sa budeme všetci radi vracať.',
+      programTitle: 'Program',
+      programSound: 'Zvuk: Peter Szabados',
       mapsTitle: 'Mapy a orientácia',
       liveMapTitle: 'Interaktívna mapa festivalu',
       liveMapHint: 'Mapa je zameraná na Bufet na dobrom mieste, s odkazmi pre auto aj pešo.',
       openDrivingMapLink: 'Otvoriť trasu autom',
       openWalkingMapLink: 'Otvoriť trasu pešo',
-      parkingMapTitle: 'Mapa parkovania áut',
-      parkingMapPlaceholder: 'Interaktívna mapa parkovania',
-      parkingHint: 'Použi mapu pre orientáciu pri príchode autom.',
-      buffetMapTitle: 'Malá mapa k Bufetu na dobrom mieste',
-      buffetMapPlaceholder: 'Interaktívna mapa pešo',
-      walkHint: 'Detail miesta festivalu s presnou polohou Bufetu na dobrom mieste.',
+      walkGuideTitle: 'Ako sa dostať pešo na festival',
+      walkSteps: [
+        'Zaparkuj na odporúčanom parkovisku v okolí a odtiaľ sa vyber pešo za festivalovou atmosférou.',
+        'Stačí ísť po hlavnej ceste smerom k areálu.',
+        'Pri hlavnom vstupe sa drž festivalového značenia a potom už len pokračuj rovno.',
+        'Dovedie ťa až k Bufetu na dobrom mieste, kde štartuje celý program.',
+      ],
       openMapLink: 'Otvoriť mapu na celú obrazovku',
       faqTitle: 'FAQ',
       contactTitle: 'Kontakt',
-      organizer: 'Organizátor: placeholder',
+      organizer: 'Organizátor: 4Bluegrass',
       contactLine: 'E-mail: placeholder@example.com | Telefón: +421 xxx xxx xxx',
       siteCredit: 'Created by Hardcode Solutions s.r.o.',
       backToTop: 'Späť hore',
