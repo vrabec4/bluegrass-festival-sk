@@ -17,13 +17,19 @@ export function FeaturedArtistsSlider({ bands }: FeaturedArtistsSliderProps) {
     () =>
       bands.map((band) => {
         const imageUrl = band.imageUrl.startsWith('/') ? `${basePath}${band.imageUrl}` : band.imageUrl;
+        const href = band.websiteUrl ?? '#program';
+        const isExternal = Boolean(band.websiteUrl);
 
         return (
           <Card
             key={`${band.name}-${band.time}`}
             className="h-full overflow-hidden border-white/10 bg-[#0e2231]/70 transition-all duration-300 hover:scale-[1.02] hover:border-[#f3b026]/60 hover:shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
           >
-            <a href="#program" title={band.name}>
+            <a
+              href={href}
+              title={band.name}
+              {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+            >
               <div className="aspect-[4/3] overflow-hidden bg-[radial-gradient(circle_at_50%_20%,rgba(20,60,82,0.65)_0%,rgba(7,17,27,0.95)_100%)]">
                 <img src={imageUrl} alt={band.name} loading="lazy" className="h-full w-full object-cover transition duration-500" />
               </div>

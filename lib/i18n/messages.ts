@@ -58,6 +58,7 @@ export const messages = {
         'Keďže ide o premiérový ročník, budeme sa snažiť urobiť maximum pre to, aby ste si odniesli skvelý zážitok, dobrú náladu a chuť prísť aj nabudúce. Veríme, že práve tento prvý ročník položí základ krásnej tradícii a festivalu, na ktorý sa budeme všetci radi vracať.',
       programTitle: 'Program',
       programSound: 'Zvuk: Peter Szabados',
+      programModerator: 'Moderátor: Nikol Liptáková',
       mapsTitle: 'Mapy a orientácia',
       liveMapTitle: 'Interaktívna mapa festivalu',
       liveMapHint: 'Mapa je zameraná na Bufet na dobrom mieste, s odkazmi pre auto aj pešo.',

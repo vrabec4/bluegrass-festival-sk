@@ -6,11 +6,13 @@ export type Band = {
   time: string;
   description: string;
   imageUrl: string;
+  websiteUrl?: string;
 };
 
 export type ScheduleItem = {
   time: string;
   label: string;
+  websiteUrl?: string;
 };
 
 export type FaqItem = {
@@ -129,6 +131,7 @@ export const festivalEditions: FestivalEdition[] = [
         time: '14:00',
         description: 'Potvrdená kapela. Placeholder text.',
         imageUrl: '/images/bg-time.jpg',
+        websiteUrl: 'https://bgtime.sk/',
       },
       {
         name: 'Poa Pratensis',
@@ -136,6 +139,7 @@ export const festivalEditions: FestivalEdition[] = [
         time: '15:10',
         description: 'Potvrdená kapela. Placeholder text.',
         imageUrl: '/images/poa-pratensis.jpg',
+        websiteUrl: 'https://pratensis.hu/WP/',
       },
       {
         name: 'Grass Device',
@@ -143,6 +147,7 @@ export const festivalEditions: FestivalEdition[] = [
         time: '16:20',
         description: 'Potvrdená kapela. Placeholder text.',
         imageUrl: '/images/grass-device.jpg',
+        websiteUrl: 'https://grassdevice.com/',
       },
       {
         name: 'Union Citygrass',
@@ -150,6 +155,7 @@ export const festivalEditions: FestivalEdition[] = [
         time: '17:30',
         description: 'Potvrdená kapela. Placeholder text.',
         imageUrl: '/images/sponsors/UCG.png',
+        websiteUrl: 'https://ucg.sk/',
       },
       {
         name: 'Monogram',
@@ -157,14 +163,15 @@ export const festivalEditions: FestivalEdition[] = [
         time: '18:40',
         description: 'Potvrdená kapela. Placeholder text.',
         imageUrl: '/images/monogram.jpg',
+        websiteUrl: 'https://monogram.cz/',
       },
     ],
     schedule: [
-      { time: '14:00', label: 'Bg Time' },
-      { time: '15:10', label: 'Poa Pratensis' },
-      { time: '16:20', label: 'Grass Device' },
-      { time: '17:30', label: 'Union Citygrass' },
-      { time: '18:40', label: 'Monogram' },
+      { time: '14:00', label: 'Bg Time', websiteUrl: 'https://bgtime.sk/' },
+      { time: '15:10', label: 'Poa Pratensis', websiteUrl: 'https://pratensis.hu/WP/' },
+      { time: '16:20', label: 'Grass Device', websiteUrl: 'https://grassdevice.com/' },
+      { time: '17:30', label: 'Union Citygrass', websiteUrl: 'https://ucg.sk/' },
+      { time: '18:40', label: 'Monogram', websiteUrl: 'https://monogram.cz/' },
       { time: '20:00', label: 'Voľná Jam Session pri dobrom pive' },
       { time: '22:00', label: 'Koniec programu' },
     ],

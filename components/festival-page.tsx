@@ -56,6 +56,9 @@ export function FestivalPage({ edition, showYearNav = true }: FestivalPageProps)
               <p className="inline-flex rounded-full border border-[#164859] bg-white px-4 py-1 text-xs font-bold uppercase tracking-[0.1em] text-[#164859]">
                 {t('festival.programSound')}
               </p>
+              <p className="inline-flex rounded-full border border-[#164859] bg-white px-4 py-1 text-xs font-bold uppercase tracking-[0.1em] text-[#164859]">
+                {t('festival.programModerator')}
+              </p>
             </div>
 
             <Card className="mt-6 border-[#0a2731]/15 bg-white text-[#222] shadow-[0_20px_60px_rgba(10,39,49,0.12)]">
@@ -66,7 +69,18 @@ export function FestivalPage({ edition, showYearNav = true }: FestivalPageProps)
                       <span className="inline-flex min-w-16 rounded-md bg-[#164859] px-2 py-1 text-center text-sm font-bold text-white">
                         {item.time}
                       </span>
-                      <span className="pt-0.5 text-base font-semibold">{item.label}</span>
+                      {item.websiteUrl ? (
+                        <a
+                          href={item.websiteUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="pt-0.5 text-base font-semibold text-[#164859] transition-colors hover:text-[#f3b026]"
+                        >
+                          {item.label}
+                        </a>
+                      ) : (
+                        <span className="pt-0.5 text-base font-semibold">{item.label}</span>
+                      )}
                     </li>
                   ))}
                 </ol>
