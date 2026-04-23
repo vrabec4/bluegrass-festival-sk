@@ -1,7 +1,7 @@
 import type { NextConfig } from 'next';
 
 const repoName = 'bluegrass-festival-sk';
-const isGithubActions = process.env.GITHUB_ACTIONS === 'true';
+const isPagesDeploy = process.env.DEPLOY_TARGET === 'pages';
 
 const nextConfig: NextConfig = {
   output: 'export',
@@ -9,10 +9,10 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: isGithubActions ? `/${repoName}` : '',
-  assetPrefix: isGithubActions ? `/${repoName}/` : undefined,
+  basePath: isPagesDeploy ? `/${repoName}` : '',
+  assetPrefix: isPagesDeploy ? `/${repoName}/` : undefined,
   env: {
-    NEXT_PUBLIC_BASE_PATH: isGithubActions ? `/${repoName}` : '',
+    NEXT_PUBLIC_BASE_PATH: isPagesDeploy ? `/${repoName}` : '',
   },
 };
 
