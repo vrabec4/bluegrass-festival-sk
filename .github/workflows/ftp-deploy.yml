@@ -1,9 +1,6 @@
 name: Deploy to bgfest.sk (FTPS)
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 concurrency:
