@@ -10,9 +10,9 @@ export const metadata: Metadata = {
   title: t('metadata.siteTitle'),
   description: t('metadata.siteDescription'),
   icons: {
-    icon: '/images/logo.jpeg',
-    shortcut: '/images/logo.jpeg',
-    apple: '/images/logo.jpeg',
+    icon: '/images/favicon.png',
+    shortcut: '/images/favicon.png',
+    apple: '/images/favicon.png',
   },
 };
 
@@ -21,6 +21,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang={locale}>
+      <head>
+        <link rel="preload" as="image" href="/images/logo.webp" fetchPriority="high" />
+      </head>
       <body>
         <I18nProvider locale={locale} messages={messages}>
           <div className="festival-shell" id="top">

@@ -1,9 +1,13 @@
 import { ArrowUp } from 'lucide-react';
+import dynamic from 'next/dynamic';
 import { FeaturedArtistsSlider } from '@/components/featured-artists-slider';
 import { HeroSlider } from '@/components/hero-slider';
 import { SiteHeader } from '@/components/site-header';
-import { SponsorsSlider } from '@/components/sponsors-slider';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+
+const SponsorsSlider = dynamic(() => import('@/components/sponsors-slider').then((m) => m.SponsorsSlider), {
+  loading: () => <div className="h-40" aria-hidden="true" />,
+});
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import type { FestivalEdition } from '@/data/festivals';
 import { createTranslator, defaultLocale, getMessages } from '@/lib/i18n';

@@ -73,21 +73,21 @@ export const festivalEditions: FestivalEdition[] = [
     voluntaryEntryLabel: 'Vstupné dobrovoľné',
     heroSlides: [
       {
-        imageUrl: '/images/logo.jpeg',
+        imageUrl: '/images/logo.webp',
         imageFit: 'contain',
         imagePosition: 'center',
         heading: 'BLUEGRASS NA DOBROM MIESTE',
         actions: [{ label: 'Mapa parkovania', href: '#mapy' }],
       },
       {
-        imageUrl: '/images/BNDM.jpeg',
+        imageUrl: '/images/BNDM.webp',
         imageFit: 'cover',
         imagePosition: 'center 72%',
         heading: 'JEDEN DEŇ, 5 KAPIEL',
         actions: [{ label: 'Pozrieť lineup', href: '#kapely' }],
       },
       {
-        imageUrl: 'https://www.blueoxmusicfestival.com/wp-content/uploads/2026/02/Art-in-the-Pines.jpg',
+        imageUrl: '/images/art-in-the-pines.webp',
         heading: 'VSTUPNÉ JE DOBROVOĽNÉ',
         actions: [{ label: 'Praktické info', href: '#faq' }],
       },
@@ -130,7 +130,7 @@ export const festivalEditions: FestivalEdition[] = [
         status: 'confirmed',
         time: '14:00',
         description: 'Potvrdená kapela. Placeholder text.',
-        imageUrl: '/images/bg-time.jpg',
+        imageUrl: '/images/bg-time.webp',
         websiteUrl: 'https://bgtime.sk/',
       },
       {
@@ -138,7 +138,7 @@ export const festivalEditions: FestivalEdition[] = [
         status: 'confirmed',
         time: '15:10',
         description: 'Potvrdená kapela. Placeholder text.',
-        imageUrl: '/images/poa-pratensis.jpg',
+        imageUrl: '/images/poa-pratensis.webp',
         websiteUrl: 'https://pratensis.hu/WP/',
       },
       {
@@ -146,7 +146,7 @@ export const festivalEditions: FestivalEdition[] = [
         status: 'confirmed',
         time: '16:20',
         description: 'Potvrdená kapela. Placeholder text.',
-        imageUrl: '/images/grass-device.jpg',
+        imageUrl: '/images/grass-device.webp',
         websiteUrl: 'https://grassdevice.com/',
       },
       {
@@ -154,7 +154,7 @@ export const festivalEditions: FestivalEdition[] = [
         status: 'confirmed',
         time: '17:30',
         description: 'Potvrdená kapela. Placeholder text.',
-        imageUrl: '/images/sponsors/UCG.png',
+        imageUrl: '/images/sponsors/UCG.webp',
         websiteUrl: 'https://ucg.sk/',
       },
       {
@@ -162,7 +162,7 @@ export const festivalEditions: FestivalEdition[] = [
         status: 'confirmed',
         time: '18:40',
         description: 'Potvrdená kapela. Placeholder text.',
-        imageUrl: '/images/monogram.jpg',
+        imageUrl: '/images/monogram.webp',
         websiteUrl: 'https://monogram.cz/',
       },
     ],

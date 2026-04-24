@@ -114,13 +114,18 @@ export function HeroSlider({ edition }: HeroSliderProps) {
             <li key={`dot-${slide.heading}`}>
               <button
                 type="button"
-                className={cn(
-                  'h-2.5 w-2.5 rounded-full border border-white/70 transition-all',
-                  index === activeIndex ? 'w-7 bg-[#f3b026] border-[#f3b026]' : 'bg-transparent hover:bg-white/30',
-                )}
+                className="group inline-flex h-6 w-6 items-center justify-center"
                 onClick={() => goTo(index)}
                 aria-label={t('hero.slideLabel', { index: index + 1 })}
-              />
+              >
+                <span
+                  aria-hidden="true"
+                  className={cn(
+                    'block h-2.5 rounded-full border border-white/70 transition-all',
+                    index === activeIndex ? 'w-7 bg-[#f3b026] border-[#f3b026]' : 'w-2.5 bg-transparent group-hover:bg-white/30',
+                  )}
+                />
+              </button>
             </li>
           ))}
         </ul>

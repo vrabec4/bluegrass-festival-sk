@@ -32,11 +32,15 @@ export function SponsorsSlider({ sponsors }: SponsorsSliderProps) {
               className="mx-auto block w-[150px] max-w-full transition-opacity duration-300 md:w-[250px] xl:w-[310px] group-hover:opacity-0"
               src={sponsor.creamLogoUrl}
               alt={sponsor.name}
+              loading="lazy"
+              decoding="async"
             />
             <img
               className="pointer-events-none absolute inset-0 m-auto w-[150px] max-w-[calc(100%-8px)] opacity-0 transition-opacity duration-300 md:w-[250px] xl:w-[310px] group-hover:opacity-100"
               src={sponsor.goldLogoUrl}
               alt={sponsor.name}
+              loading="lazy"
+              decoding="async"
             />
           </a>
         </div>

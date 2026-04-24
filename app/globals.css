@@ -40,7 +40,7 @@ body {
 .festival-shell {
   background:
     linear-gradient(180deg, #0a2731 2%, rgb(10 39 49 / 0)),
-    url('https://www.blueoxmusicfestival.com/wp-content/themes/blueox/assets/images/backgrounds/Desktop_Footer_GradientBlend-shorter.webp');
+    url('/images/footer-gradient-desktop.webp');
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: 100% auto;
@@ -50,7 +50,7 @@ body {
   .festival-shell {
     background:
       linear-gradient(180deg, #0a2731 40.34%, rgb(10 39 49 / 0)),
-      url('https://www.blueoxmusicfestival.com/wp-content/themes/blueox/assets/images/backgrounds/Home_Footer_Mobile2_shorter.webp');
+      url('/images/footer-gradient-mobile.webp');
     background-position: center bottom;
     background-repeat: no-repeat;
     background-size: 100% auto;
@@ -62,7 +62,7 @@ body {
 }
 
 .sponsors-bg {
-  background-image: url('https://www.blueoxmusicfestival.com/wp-content/themes/blueox/assets/images/backgrounds/Desktop_Footer_GradientBlend-shorter.webp');
+  background-image: url('/images/footer-gradient-desktop.webp');
   background-position: center bottom;
   background-size: 100% auto;
   background-repeat: no-repeat;
@@ -70,7 +70,7 @@ body {
 
 @media (max-width: 900px) {
   .sponsors-bg {
-    background-image: url('https://www.blueoxmusicfestival.com/wp-content/themes/blueox/assets/images/backgrounds/Home_Footer_Mobile2_shorter.webp');
+    background-image: url('/images/footer-gradient-mobile.webp');
     background-position: center bottom;
     background-size: 100% auto;
     background-repeat: no-repeat;
