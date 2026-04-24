@@ -159,7 +159,17 @@ export function FestivalPage({ edition, showYearNav = true }: FestivalPageProps)
           <h2 className="text-3xl font-black uppercase tracking-[0.12em] text-[#f3b026] md:text-4xl">{t('festival.contactTitle')}</h2>
           <div className="mt-4 space-y-1 text-[#fff6e8]/95">
             <p>{t('festival.organizer')}</p>
-            {/* <p>{t('festival.contactLine')}</p> */}
+            <p>
+              {t('festival.contactEmailLabel')}:{' '}
+              <a href={`mailto:${t('festival.contactEmail')}`} className="underline hover:text-[#f3b026]">
+                {t('festival.contactEmail')}
+              </a>
+              {' | '}
+              {t('festival.contactPhoneLabel')}:{' '}
+              <a href={`tel:${t('festival.contactPhone').replace(/\s/g, '')}`} className="underline hover:text-[#f3b026]">
+                {t('festival.contactPhone')}
+              </a>
+            </p>
             <p>{t('festival.siteCredit')}</p>
           </div>
           <p className="mt-5 text-sm text-[#fff6e8]/80">

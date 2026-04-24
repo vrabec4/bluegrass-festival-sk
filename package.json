@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start --hostname 127.0.0.1 --port 5173",
     "lint": "tsc --noEmit",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "deploy": "bash scripts/deploy.sh"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.12",
