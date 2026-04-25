@@ -94,33 +94,33 @@ export const festivalEditions: FestivalEdition[] = [
     ],
     sponsors: [
       {
-        name: 'Slovenský skauting',
-        url: 'https://skauting.sk/',
+        name: 'Slovenský skauting, 61. zbor Modrý oblak Pezinok',
+        url: 'https://modryoblak.sk/',
         ...localSponsorLogos('skauting-v2'),
       },
       {
         name: 'Coall',
-        url: '#',
+        url: 'https://coall.eu/',
         ...localSponsorLogos('coall'),
       },
       {
         name: 'Country Club Sheriff Tovarníky',
-        url: '#',
+        url: 'https://sherifftovarniky.sk/',
         ...localSponsorLogos('sheriff-tovarniky'),
       },
       {
         name: 'Hardcode solutions',
-        url: '#',
+        url: 'https://www.hardcodesolutions.com/sk/',
         ...localSponsorLogos('hardcode-solutions'),
       },
       {
         name: 'NexusRTM',
-        url: '#',
+        url: 'http://www.nexusrtm.sk/',
         ...localSponsorLogos('nexusrtm'),
       },
       {
         name: 'Bufet na dobrom mieste',
-        url: '#',
+        url: 'https://www.instagram.com/bufet_na_dobrom_mieste/',
         ...localSponsorLogos('bufet-na-dobrom-mieste'),
       },
     ],

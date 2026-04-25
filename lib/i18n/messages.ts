@@ -53,7 +53,7 @@ export const messages = {
       aboutBodyTwo:
         'Chceme zároveň podporiť a spropagovať bluegrassovú muziku, ktorá má svoje čaro, silu aj jedinečnú energiu. Veríme, že si táto hudba zaslúži viac priestoru, viac poslucháčov a miesto, kde môže znieť naplno a naživo. Aj preto sme sa rozhodli pripraviť festival, ktorý spojí fanúšikov tohto žánru, hudobníkov aj všetkých, ktorí radi objavujú poctivú hudbu hranú od srdca.',
       aboutBodyThree:
-        'Našou snahou je dopriať ľuďom príjemný kultúrny program aj v nedeľu — deň, ktorý sa často nesie v pokojnejšom duchu a ponúka priestor na oddych, stretnutia a dobrú hudbu. Chceme, aby si k nám návštevníci prišli užiť deň plný hudby, pohody a priateľskej atmosféry na dobrom mieste.',
+        'Našou snahou je dopriať ľuďom príjemný kultúrny program v sobotu — deň, ktorý ponúka priestor na oddych, stretnutia s priateľmi a dobrú hudbu. Chceme, aby si k nám návštevníci prišli užiť deň plný hudby, pohody a priateľskej atmosféry na dobrom mieste.',
       aboutBodyFour:
         'Keďže ide o premiérový ročník, budeme sa snažiť urobiť maximum pre to, aby ste si odniesli skvelý zážitok, dobrú náladu a chuť prísť aj nabudúce. Veríme, že práve tento prvý ročník položí základ krásnej tradícii a festivalu, na ktorý sa budeme všetci radi vracať.',
       programTitle: 'Program',

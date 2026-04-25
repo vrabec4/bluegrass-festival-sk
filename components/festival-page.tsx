@@ -168,7 +168,8 @@ export function FestivalPage({ edition, showYearNav = true }: FestivalPageProps)
               <a href={`mailto:${t('festival.contactEmail')}`} className="underline hover:text-[#f3b026]">
                 {t('festival.contactEmail')}
               </a>
-              {' | '}
+            </p>
+            <p>
               {t('festival.contactPhoneLabel')}:{' '}
               <a href={`tel:${t('festival.contactPhone').replace(/\s/g, '')}`} className="underline hover:text-[#f3b026]">
                 {t('festival.contactPhone')}
